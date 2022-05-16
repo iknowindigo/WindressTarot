@@ -1,0 +1,141 @@
+
+
+<ion-header>
+  <ion-toolbar color="indigold" >
+    <ion-buttons slot="primary">
+      <ion-button (click)="goHome()">
+        <ion-icon name="home-outline"></ion-icon>
+        Home
+      </ion-button> 
+      <ion-label class="loginName">
+        {{displayName}} 
+      </ion-label>
+    </ion-buttons>
+
+    <ion-title class="ion-text-left diary-title">My Tarot Diary</ion-title>
+
+    <!-- <ion-searchbar animated id="search-bar"
+      [(ngModel)] = "searchTerm"
+      (search)="onSearch($event)" >
+    </ion-searchbar> -->
+    
+    <!-- <ion-button slot="end">Search for Card</ion-button> -->
+    <!-- <ion-segment (ionChange)="segmentChanged($event)">
+      <ion-segment-button value="friends">
+        <ion-label>Friends</ion-label>
+      </ion-segment-button>
+      <ion-segment-button value="enemies">
+        <ion-label>Enemies</ion-label>
+      </ion-segment-button>
+    </ion-segment> -->
+  </ion-toolbar>
+  <ion-toolbar color="primary" class="searchTools">
+    <ion-buttons slot="primary">
+      <div class="mySearchTerm">
+        {{ currentSearchText }}
+      </div>
+      <div *ngIf="showSearchCard">
+        <ion-button (click)="doCardSearch()" #searchCardBtn>
+          <ion-icon name="albums-outline"></ion-icon>
+           Search for card
+        </ion-button> 
+      </div>
+      
+      <!-- <ion-button (click)="ShowHideSearch()">
+        <ion-icon name="search-outline"></ion-icon>
+        {{ searchButtonText }}
+      </ion-button> -->
+     
+     
+    <ion-toolbar *ngIf="searchMode">
+      <ion-searchbar animated id="search-bar"
+      [(ngModel)] = "searchTerm"
+      (search)="onSearch($event)" >
+    </ion-searchbar>
+    </ion-toolbar>
+    </ion-buttons>
+   
+  </ion-toolbar>
+</ion-header>
+
+<!-- <ion-split-pane when="sm" contentId="main"> -->
+ 
+
+  <ion-split-pane when="xs" contentId="main-content">
+
+  <app-folder-nav> [favoriteFolders] = "favoriteFolders"</app-folder-nav>
+
+
+<ion-content contentId="main-content">
+
+  <div class="spacerBefore"> 
+  <!-- this pushes the list below the toolbars   -->
+  </div>
+
+  <div *ngIf="myThrowsReadyForRendering != undefined && myThrowsReadyForRendering.length > 0">
+   
+    <ion-list *ngFor="let throw of myThrowsReadyForRendering; let i=index;" lines="none"
+    class="accordian-list"
+      details="false">
+      <ng-template [ngIf]="throw.throwDeleted">
+        <ion-item>
+          <h3>(Throw deleted)</h3>
+        </ion-item>
+        
+      </ng-template>
+
+      <ng-template [ngIf]="!throw.throwDeleted">
+        
+         
+        <!-- <app-draggable>
+          <ion-badge cursor="grab" color="primary"> hmm </ion-badge>
+        </app-draggable>   throw.typeThrow-->
+          <ion-item 
+              tappable (click)="toggleSelection(i)" [ngClass]="{'section-active': throw.open,
+              'section': !throw.open}">
+            
+            
+            <ion-label >
+              <!-- <br><br> -->
+             
+              <h4 class="head-type">{{ throw.readingName}}   </h4>
+              <h3 class="head-subject">{{ throw.subject }}</h3>
+              <h4 class="head-date">{{ throw.displayDateTime }}  </h4>
+             
+              <div class="multiline">  {{ throw.comment}} </div> 
+              <!-- <p> {{ throw.comment}} {{ throw.displayDateModified }}</p> -->
+          
+              <app-tablehelp *ngIf="throw.open">
+                [tarotThrow]='throw' [data]='throw' 
+              </app-tablehelp>
+            </ion-label>
+        
+          </ion-item>
+      
+        </ng-template>
+    </ion-list>
+  <!-- </ion-virtual-scroll> -->
+  </div>
+  
+
+
+
+  <div *ngIf="myThrowsReadyForRendering == undefined || myThrowsReadyForRendering.length == 0">
+    <ion-card>
+      <ion-card-header>
+        <div *ngIf="noThrowsSavedYet == true">
+          <ion-card-content>Readings you've saved will be displayed here </ion-card-content>
+        </div>
+        <ion-card-title> </ion-card-title>
+        <!-- <ion-card-title>No tarot throws have been saved yet</ion-card-title> -->
+        <!-- <ion-card-subtitle> save some throws first, then you can look at your diary</ion-card-subtitle> -->
+      </ion-card-header>
+    </ion-card>
+   
+  </div>
+
+  
+</ion-content>
+
+
+</ion-split-pane>

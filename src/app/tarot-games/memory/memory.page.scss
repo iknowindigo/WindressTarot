@@ -1,0 +1,63 @@
+
+.cardToPick {
+    cursor: pointer;
+    transition: 0.3s;
+    width:  66px;    //72px; //69px; 
+    // margin-left: 30px;
+    // justify-content: center;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    // height: 90px
+}
+
+.cardToPick:hover {
+    // transform: rotate(360deg) scale(1.5);
+    transform: scale(1.2);
+} 
+
+.cardToPick::selection {
+    transform: rotate(360deg);
+}
+
+.finalCard {
+    width: 162px; 
+    justify-content: center;
+}
+
+.finalMod {
+    width: 132px; 
+    justify-content: center;
+}
+
+.cardBig {
+    width: 100%; //180px; 
+    height: 100%; //180px;
+    justify-content: center;
+}
+
+.cardMed {
+    width: 90px; 
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.cardSmall {
+    width: 72px; 
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.colBordered {
+    // border-left: 1px solid wheat;
+    // border-right: 1px solid wheat;
+    border: 1px solid #335aad;
+    border-style: dotted;
+  }
+
+//   ion-col {
+//       border-left: 1px solid wheat;
+//       border-right: 1px solid wheat;
+//   }

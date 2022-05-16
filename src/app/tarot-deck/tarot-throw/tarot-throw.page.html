@@ -1,0 +1,43 @@
+<ion-header>
+  <ion-toolbar color="indigold" >
+    <ion-buttons slot="primary">
+      <ion-button (click)="goHome()">
+        <ion-icon name="home-outline"></ion-icon>
+        Home
+      </ion-button>
+    </ion-buttons>
+
+    <!-- <ion-title>Pick {{numberCardsToSelect}} cards -- {{selectedSetOfCards.length}} selected</ion-title> -->
+    <!-- <ion-title>Select {{numberCardsToSelect}} cards - Card {{selectedSetOfCards.length + 1}} - {{textForNextPosition}}</ion-title> -->
+    <ion-title>{{ textForTitle }}  Card {{selectedSetOfCards.length + 1}} - {{ textForNextPosition }} </ion-title>
+  </ion-toolbar>
+</ion-header> 
+
+<ion-content>
+  <div class="buttonInfo">
+
+
+  <ion-item class="buttonInfo">
+    <!-- <ion-button (click)="reshuffle()" color="indigold" >
+      Shuffle
+    </ion-button> -->
+    <ion-button (click)="startOver()" color="indigold" slot="end">
+      Start Over
+    </ion-button>
+   
+   <!-- <ion-text color="secondary"> {{ textForRay }} </ion-text> -->
+    <ion-text color="secondary" class="buttonInfo">
+      <h1>{{ textForRay }} </h1>
+    </ion-text>
+  </ion-item>
+</div>
+ 
+<ion-grid class="constrainGrid">
+  <ion-row class="pickCol">
+      <ion-col size="1"  *ngFor="let card of shuffledTarotDeck; let i = index" class="pickCol">
+         <img [src]= "card.FaceDownImageUrl" class="cardToPick"  (click)= "cardClicked(card)" >  
+    </ion-col>
+  </ion-row>
+</ion-grid>
+  
+</ion-content>

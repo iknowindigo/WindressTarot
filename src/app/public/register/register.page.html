@@ -1,0 +1,93 @@
+<ion-header>
+  <ion-toolbar color="indigold" >
+    <ion-buttons slot="primary">
+      <ion-button (click)="goHome()"> 
+        <ion-icon name="home-outline"></ion-icon>
+      </ion-button >
+    </ion-buttons>
+      <!-- <ion-back-button defaultHref='/login'></ion-back-button> -->
+    <!-- </ion-buttons> -->
+    <ion-title>Register</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <ion-item>
+          <ion-label >First Name </ion-label>
+          <ion-input required type="text" placeholder='can not be left blank' 
+          (ionChange)="handleTextChange()"
+          [(ngModel)]="firstName"></ion-input>
+        </ion-item>
+      </ion-col>
+      <ion-col>
+        <ion-item>
+          <ion-label >Last Name </ion-label>
+          <ion-input required type="text" placeholder='can not be left blank' 
+          (ionChange)="handleTextChange()"
+          [(ngModel)]="lastName" ></ion-input>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+    </ion-row>
+   
+    <ion-row>
+      <ion-col>
+        <ion-item>
+          <ion-label >Email address</ion-label>
+          <ion-input required type="text" placeholder='must be valid' 
+          (ionChange)="handleTextChange()"
+          [(ngModel)]="email"  ></ion-input>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <ion-item>
+          <ion-label >Password</ion-label>
+          <ion-input required type={{type}} placeholder='must be six characters' 
+          (ionChange)="handleTextChange()"
+          [(ngModel)]="password"   ></ion-input>
+
+        </ion-item>
+      </ion-col>
+      <ion-col>
+        <ion-item>
+          <ion-label >Confirm Password</ion-label>
+          <ion-input required type={{type}} placeholder='must be six characters' 
+          (ionChange)="handleTextChange()"
+          [(ngModel)]="confirmPassword"  ></ion-input>
+
+          <button *ngIf="!showPass" ion-button clear color="dark" type="button" item-right (click)="showHidePW()"> 
+            <ion-icon name="eye" style="font-size:25px;"></ion-icon>
+         </button>
+         <button *ngIf="showPass" ion-button clear color="dark" type="button" item-right (click)="showHidePW()"> 
+            <ion-icon name="eye-off" style="font-size:25px;"></ion-icon>
+         </button>
+
+        </ion-item>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <ion-item>
+          <ion-label >Notes</ion-label>
+          <ion-textarea [(ngModel)]="notes"></ion-textarea>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  
+
+  <ion-list>
+    <ion-button expand="block" color="secondary" 
+    [disabled]="allFieldsGood==false"
+    (click)="register()">Register</ion-button>
+  </ion-list>
+
+
+</ion-content>

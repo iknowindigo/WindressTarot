@@ -1,0 +1,130 @@
+<!-- <ion-split-pane> -->
+
+  <!-- <ion-menu contentId="content"> -->
+    <ion-header>
+      <ion-toolbar color="primary">
+        <ion-title class="ion-text-center" >Windress Social Tarot </ion-title>
+        
+        <ion-buttons slot="primary">
+          <ion-button (click)="goHome()"> 
+            <ion-icon name="home-outline"></ion-icon>
+          </ion-button >
+          <ion-label class="loginName">
+            {{displayName}} 
+          </ion-label>
+         
+          <ion-menu-button ></ion-menu-button>
+       
+        </ion-buttons>
+      </ion-toolbar>
+      <ion-toolbar color="secondary">
+        
+       
+        <ion-buttons slot="primary">
+          <!-- <button onclick="location.href='https://windresstarot.web.app/'" type="button">
+            <ion-icon name="grid-outline"></ion-icon>
+            Do a Reading</button>
+          <ion-button (click)="goExplore()" tooltip="Go to Library">
+            <ion-icon name="flashlight-outline"></ion-icon>
+            &nbsp;Explore Cards
+          </ion-button> -->
+          <ion-button (click)="goFriends()" tooltip="Go to Library">
+            <ion-icon name="people-outline"></ion-icon>
+            &nbsp;Friends
+          </ion-button>
+          <ion-button (click)="goProfile()" tooltip="Go to Library">
+            <ion-icon name="person-outline"></ion-icon>
+            &nbsp;Profile
+          </ion-button>
+          <!-- <ion-button (click)="goLibrary()" tooltip="Go to Library">
+            <ion-icon name="library-outline"></ion-icon>
+            &nbsp;Diary
+          </ion-button> -->
+
+          <div *ngIf="numFriendRequests > 0">
+            <ion-button (click)="showFriendRequests($event)" item-end>
+              <ion-icon name="people-outline"></ion-icon>
+              <ion-badge>{{numFriendRequests}}</ion-badge>
+            </ion-button>
+          </div>
+          
+          <!-- <div *ngIf="iAmMe == true">
+            <ion-button (click)="goDashBoard()"  item-end>
+              <ion-icon name="analytics-outline"></ion-icon>
+              &nbsp;Dashboard
+            </ion-button>
+          </div> -->
+          
+          <div *ngIf="numBadgeComments > 0"> 
+            <ion-button (click)="commentsMade($event)"  item-end>
+              <ion-icon name="reader-outline"></ion-icon>
+              <ion-badge>{{numBadgeComments}}</ion-badge>
+            </ion-button>
+          </div>
+           
+          </ion-buttons>
+      </ion-toolbar>
+
+    </ion-header>
+
+    
+    <ion-content scroll-event-interval="5">
+      
+        <!-- <h1>Welcome to Windress Social</h1> -->
+       
+        <div *ngIf="myFriends != undefined && myFriends.length == 0 && myMessages.length == 0">
+          <h1>Welcome to Windress Social</h1>
+          <!-- <h3>{{freshenText}}</h3> -->
+          <h3 style="text-align:center">You need friends in order to share anything - visit the friends page...</h3> 
+          <div class="centered">
+            <!-- <button>Visit Friends Page</button> -->
+            <ion-button (click)="goFriends()">Visit Friends Page</ion-button>
+          </div>
+        </div>
+        
+        <div *ngIf="myMessages != undefined && myMessages.length == 0">
+          <h3 style="text-align:center">No posts to display - what's on your mind?</h3>
+        </div>
+        
+        <div *ngIf="myMessages != undefined && myMessages.length > 0">
+   
+          <!-- <ion-list-header lines="inset">   <div id="{{msg.scrollTag}}">
+            <ion-label>List Header</ion-label>  <a {{msg.scrollTag}}> 
+          </ion-list-header> -->
+
+          <ion-list *ngFor="let msg of myMessages; let i=index;" lines="none"
+              class="myList"
+              insert="true"
+              lines="full"
+                details="false">      
+            <!-- <div  name="{{msg.scrollTag}}"    > -->
+              <a name={{msg.scrollTag}}></a>
+              <app-chat-item  [myID]="myMessages[i].messageID" id="{{msg.scrollTag}}">
+              </app-chat-item>
+            <!-- </div> -->
+             
+           
+          </ion-list>
+        </div>
+    </ion-content>
+ 
+  <ion-footer>
+    <ion-item>
+      <!-- <ion-label position="floating">Say something color="medium" ...</ion-label> -->
+      <ion-input [(ngModel)]="chatText"  
+          (keyup.enter)="sendChat()"
+          placeholder="Say something..."
+          (ionChange)="handleTextChange()"
+          
+          >
+      </ion-input>
+      <ion-button (click)="sendChat()" fill="clear" icon-only slot="end">
+        <ion-icon name="chatbubble-outline"></ion-icon>
+      </ion-button>
+    </ion-item>
+    <h5 class="ion-text-center" >All images and text - Copyright &#169; 2022 Enlightened Forest Publishing.  All Rights Reserved
+    </h5>
+  </ion-footer>
+
+  <!-- <ion-router-outlet id="content" main></ion-router-outlet> -->
+<!-- </ion-split-pane>  -->

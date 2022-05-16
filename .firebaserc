@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "windresstarot": {
+      "hosting": {
+        "app": [
+          "windresstarot"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "windresstarot"
+  }
+}

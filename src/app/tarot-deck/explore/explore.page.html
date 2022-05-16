@@ -1,0 +1,75 @@
+<ion-header>
+  <ion-toolbar color="indigold" >
+    <ion-buttons slot="primary">
+      
+      <ion-button (click)="goHome()">
+        <ion-icon name="home-outline"></ion-icon>
+        &nbsp;Home
+      </ion-button>
+     
+    </ion-buttons>
+    <ion-title>Explore the deck</ion-title>
+  </ion-toolbar>
+  <ion-toolbar color="secondary">
+    <ion-buttons slot="primary">
+      <ion-button (click)="goPent()">
+        Pentacles
+        <ion-icon name="star-outline"></ion-icon>
+      </ion-button>
+      <ion-button (click)="goSword()" >
+        Swords
+        <ion-icon name="alert-outline"></ion-icon>
+      </ion-button>
+      <ion-button (click)="goWands()" >
+        Wands
+        <ion-icon name="color-wand-outline"></ion-icon>
+      </ion-button>
+      <ion-button (click)="goCups()">
+        Cups
+        <ion-icon name="cafe-outline"></ion-icon>
+      </ion-button>
+      <ion-button (click)="goAnkhs()" >
+        Ankhs
+      </ion-button>
+      <ion-button (click)="MajorA()" >
+        Major Arcana
+      </ion-button>
+      <ion-button (click)="goRank()" >
+        Rank 
+        <ion-icon name="apps-outline"></ion-icon>
+      </ion-button>
+      <!-- <ion-button (click)="goSuit()">
+        Suit 
+        <ion-icon name="albums-outline"></ion-icon>
+      </ion-button> -->
+      <!-- <ion-button (click)="goRand()">
+        Random 
+        <ion-icon name="stats-chart-outline"></ion-icon> -->
+      <!-- </ion-button> -->
+      
+    </ion-buttons>
+    <!-- <ion-title>Order by:</ion-title> -->
+  </ion-toolbar>
+</ion-header>
+ 
+<ion-content>
+
+  <ion-grid class="constrainGrid">
+    <ion-row class="pickCol">
+        <ion-col size="1"  *ngFor="let card of displayTarotDeck; let i = index" class="pickCol">
+           <img [src]= "card.imageUrl" class="cardToPick"  (click)= "cardClicked(card)" >  
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+</ion-content>
+<ion-footer>
+  <ion-toolbar> 
+    <small>
+    <!-- <ion-title class="ion-text-center">Footer</ion-title> -->
+    <h5 class="ion-text-center" >All images and text - Copyright &#169; 2022 Enlightened Forest Publishing.  All Rights Reserved
+
+    </h5>
+  </small>
+  </ion-toolbar>
+</ion-footer>

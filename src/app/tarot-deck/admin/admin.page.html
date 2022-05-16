@@ -1,0 +1,41 @@
+<ion-header>
+  <ion-toolbar color="indigold" >
+    <ion-buttons slot="primary">   
+      <ion-button (click)="goHome()"> 
+        <ion-icon name="home-outline"></ion-icon>
+      </ion-button >
+    </ion-buttons>
+    <ion-title>Admin Page - You must be an admin to be here</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-item>
+    <ion-label position="floating">Make user (email) admin:</ion-label>
+    <ion-input type="text" [(ngModel)]="adminEmail" name="adminEmail"></ion-input>
+  </ion-item>
+  <button ion-button block (click)="makeUserAdmin()" type="button">Make user admin</button>
+  <div>
+
+  </div>
+  <ion-item>
+    <ion-label position="floating">Make user (email) premium user:</ion-label>
+    <ion-input type="text" [(ngModel)]="premiumEmail" name="premiumEmail"></ion-input>
+  </ion-item>
+  <button ion-button  (click)="makeUserPremiumUser()" type="button">Make user premium user</button>
+
+
+  <ion-item>
+    <ion-label position="floating">Paid up premium user (email) </ion-label>
+    <ion-input type="text" [(ngModel)]="paidUpPremiumEmail"></ion-input>
+  </ion-item>
+  <button ion-button  (click)="payUpPremiumUser()" type="button">pay premium</button>
+
+  <ion-item>
+    <ion-label position="floating">Premium user (email) owes money</ion-label>
+    <ion-input type="text" [(ngModel)]="premiumUserOwesMoney" type="button"></ion-input>
+  </ion-item>
+  <button ion-button  (click)="userOwesUsMoney()">user now owes us money</button>
+
+
+</ion-content>

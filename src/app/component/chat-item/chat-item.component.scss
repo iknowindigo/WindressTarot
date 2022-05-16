@@ -1,0 +1,47 @@
+ion-grid {
+    border: 1px solid #aeb7ca;
+  }
+
+  .list {
+    padding-top: 0px;
+    padding-bottom: 0px;
+    background: rgb(8, 20, 94);
+  }
+
+  .card-post {
+    // margin-left: 10px;
+    // background: rgb(8, 20, 94);
+    // width: 320px;
+    // height: 230px;
+    border-radius: 10px;
+    box-shadow: 0 3px 3px rgba(0,0,0,0.19);
+    margin: auto;
+    // margin-top: 60px;
+    // margin-bottom: 60px;
+  }
+
+  .card-comment {
+    margin-left: 66px;
+    background: rgb(25, 41, 145);
+  }
+  
+
+ion-input{
+  border-radius: 6px;
+  // font-size: 0.9em;
+  border: 1px solid white ;
+  width: 96%;
+  margin-left: 9px;
+  margin-right: 9px;
+  margin-top: 9px;
+  // max-height: 10vh;
+  --background: rgb(13, 21, 63) ;
+}
+
+ion-input.in-comment{
+  border-radius: 9px;
+  margin-left: 66px;
+  margin-right: 11px;
+  border: 1px solid rgb(164, 174, 226) ;
+  --background: rgb(13, 21, 63) ;
+} 

@@ -1,0 +1,29 @@
+<ion-header>
+  <ion-toolbar color="indigold" >
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="tarot-deck"></ion-back-button>
+    </ion-buttons>
+    <ion-title>{{ loadedTarotCard.title }}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid class="ion-no-padding">
+    <ion-row class="ion-no-padding">
+      <ion-col class="ion-no-padding">
+        <ion-img [src]='loadedTarotCard.imageUrl'></ion-img>
+      </ion-col>
+    </ion-row>
+    <ion-row class="ion-no-padding">
+      <ion-col class="ion-no-padding">
+        <h1 class="ion-text-center">{{ loadedTarotCard.title }}</h1>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <h3>{{ loadedTarotCard.key }}</h3>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+</ion-content>

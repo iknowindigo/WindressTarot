@@ -1,0 +1,24 @@
+.cardMed {
+    width: 210px; 
+    // height: 120px;
+    // display: flex;
+    justify-content: center;
+    // display: block;
+  margin: auto;
+}
+
+@media(max-width: 600px) {
+    .cardMed {
+        width: 120px;
+        justify-content: center;
+        margin: auto;
+    }
+}
+
+// ion-content {
+//     height: 375px;
+// }
+
+.landing-area {
+    height: 375px;
+}

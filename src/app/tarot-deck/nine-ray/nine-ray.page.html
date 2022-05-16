@@ -1,0 +1,105 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="primary">
+      <ion-button (click)="goHome()"> 
+        Home
+        <ion-icon name="home-outline"></ion-icon>
+      </ion-button >
+    </ion-buttons>
+    <ion-title>A Nine Ray Reading - Choose a Ray - then do a Pyramid throw </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-grid>
+    <ion-row>
+      <ion-col width-10>    </ion-col>
+      <ion-col width-10>    
+        <ion-img [src]="pathRay1" class="cardSelect"  (click)="Ray1()"  ></ion-img>
+      </ion-col>
+      <ion-col width-10>    
+        <ion-img [src]="pathRay2" class="cardSelect" (click)="Ray2()"  ></ion-img>
+      </ion-col>
+      <ion-col width-10>    
+        <ion-img [src]="pathRay3" class="cardSelect" (click)="Ray3()"  ></ion-img>
+      </ion-col>
+      <ion-col width-10>    </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col width-10>    </ion-col>
+      <ion-col width-10>    
+        Ray 1: Personal Projection - How you project in the world
+      </ion-col>
+      <ion-col width-10>    
+        Ray 2: Relationships and Karma with People
+      </ion-col>
+      <ion-col width-10>    
+        Ray 3: Creativity
+      </ion-col>
+      <ion-col width-10>    </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col width-10>    </ion-col>
+      <ion-col width-10>    
+        <ion-img [src]="pathRay4" class="cardSelect" (click)="Ray4()"  ></ion-img>
+      </ion-col>
+      <ion-col width-10>    
+        <ion-img [src]="pathRay5" class="cardSelect" (click)="Ray5()"  ></ion-img>
+      </ion-col>
+      <ion-col width-10>    
+        <ion-img [src]="pathRay6" class="cardSelect" (click)="Ray6()"  ></ion-img>
+      </ion-col>
+      <ion-col width-10>    </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col width-10>    </ion-col>
+      <ion-col width-10>    
+        Ray 4: How You Relate to your Environment
+      </ion-col>
+      <ion-col width-10>    
+        Ray 5: Powers that Influence You
+      </ion-col>
+      <ion-col width-10>    
+        Ray 6: Personal Passion - Mysticism
+      </ion-col>
+      <ion-col width-10>    </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col width-10>    </ion-col>
+      <ion-col width-10>    
+        <ion-img [src]="pathRay7" class="cardSelect" (click)="Ray7()"  ></ion-img>
+      </ion-col>
+      <ion-col width-10>    
+        <ion-img [src]="pathRay8" class="cardSelect" (click)="Ray8()"  ></ion-img>
+      </ion-col>
+      <ion-col width-10>    
+        <ion-img [src]="pathRay9" class="cardSelect" (click)="Ray9()"  ></ion-img>
+      </ion-col>
+      <ion-col width-10>    </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col width-10>    </ion-col>
+      <ion-col width-10>    
+        Ray 7: Private Inner Worlds
+      </ion-col>
+      <ion-col width-10>    
+        Ray 8: Money, Structure, Employment
+      </ion-col>
+      <ion-col width-10>    
+        Ray 9: Final Outcome
+      </ion-col>
+      <ion-col width-10>    </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
+<ion-footer>
+  <ion-toolbar> 
+    <small>
+    <!-- <ion-title class="ion-text-center">Footer</ion-title> -->
+    <h5 class="ion-text-center" >All images and text - Copyright &#169; 2022 Enlightened Forest Publishing.  All Rights Reserved
+
+    </h5>
+  </small>
+  </ion-toolbar>
+</ion-footer>

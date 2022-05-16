@@ -1,0 +1,108 @@
+<ion-header >
+  <ion-toolbar color="indigold"  >
+    <ion-buttons slot="primary">
+      
+      <ion-button (click)="close()">
+        Close
+        <ion-icon name="close-outline"></ion-icon>
+      </ion-button>
+      
+    </ion-buttons>
+    <div *ngIf="newFolderMode">
+      <ion-title class="ion-text-center">Create New Folder to Store Reading:</ion-title>
+    </div>
+
+    <div *ngIf="!newFolderMode">
+      <ion-title class="ion-text-center">Select Folder to Store Reading:</ion-title>
+    </div>
+   
+  </ion-toolbar>
+</ion-header> 
+
+<ion-content >
+
+  
+  <div *ngIf="newFolderMode">
+    <ion-item color="teriary">
+      <ion-label>Create New Folder:</ion-label>
+      <ion-input placeholder="New folder name..." 
+      class="inputnewfolder"
+      #inputnewfolder
+      autofocus="true"
+      #inputId 
+      [(ngModel)]="folderName"
+      (ionChange)='onChangeTime($event.target.value)'
+        type="text" maxlength="36">
+      </ion-input>
+      <ion-button 
+      (click)="saveNewFolder()" [disabled]="inputValid==false"  expand="block" slot="end">Create</ion-button>
+   </ion-item>
+  </div>
+    
+  <div *ngIf="!newFolderMode">
+
+
+    
+    <label class = "item item-input item-select item-light">
+      <!-- <div class = "input-label" slot="end">   onchange="selectChange($event)"  -->
+         Select Existing Folder:
+      <!-- </div> -->
+		
+      <select class="mySelect" color="primary" slot="end" [(ngModel)]="folderName"  #FolderSelectId (change)="selectChange($event)">
+         <option *ngFor="let folder of folderInfoList let i=index;" 
+          value="folder.name"
+          [disabled]="folder.enabledForThisThrow==true"
+          >
+          {{folder.name}}
+          
+        </option>
+        <!-- <option>dummy</option> -->
+      </select>
+          <ion-button class="button_example" fill="clear" (click)="selectExistingFolder()" >OK</ion-button>
+ 
+   </label>
+
+  
+  </div>
+
+
+  <!-- <div *ngIf="folderInfoList != undefined && folderInfoList.length > 0">
+    <ion-item>
+      <ion-label  >Select from {{folderInfoList.length}} Folder(s):</ion-label>
+      <ion-select placeholder="click here..." [(ngModel)]="folderName" (ionChange)='optionsFn($event)' interface="popover" >        
+        <ion-select-option *ngFor="let folder of folderInfoList" disabled="{{folder.enabledForThisThrow}}"  >
+          {{ folder.name}}
+        </ion-select-option>
+      </ion-select> 
+    </ion-item> 
+  </div>  -->
+    
+
+  <!-- <ion-item>
+    <ion-label>Choose Language</ion-label>
+    <ion-select [(ngModel)]="languageSelected" (ionChange)='setLanguage()'>
+     <ion-option value="en">English</ion-option>
+     <ion-option value="ar">Arabic</ion-option>
+     
+   </ion-select>
+         <!-- <ion-select-option value="brown">Brown</ion-select-option>
+      <ion-select-option disabled="true" value="blonde">Blonde</ion-select-option>
+      <ion-select-option value="black">Black</ion-select-option>
+      <ion-select-option value="red">Red</ion-select-option> -->
+<!-- </ion-item> --> 
+
+
+
+<!-- <div *ngIf="favoriteFolders != undefined && favoriteFolders.length > 0">
+  <ion-item>
+    <ion-label  >Select from {{favoriteFolders.length}} Folder(s):</ion-label>
+    <ion-select placeholder="click here..." [(ngModel)]="folderName" (ionChange)='optionsFn($event)'>
+      <ion-select-option *ngFor="let folder of favoriteFolders">
+        {{ folder.name}}
+      </ion-select-option>
+    </ion-select> 
+  </ion-item> 
+</div>
+   -->
+
+</ion-content>

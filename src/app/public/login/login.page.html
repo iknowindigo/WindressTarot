@@ -1,0 +1,85 @@
+<ion-header>
+  <ion-toolbar color="indigold" >
+    <ion-buttons slot="primary">
+      <!-- <ion-back-button defaultHref="tarot-deck"></ion-back-button> -->
+      <div >
+        <ion-button [disabled]="loggedIn== true" (click)="register()">
+          <ion-icon name="create-outline"></ion-icon>        Register new email
+        </ion-button>
+      </div >
+      
+      <ion-button (click)="goHome()">
+        <ion-icon name="home-outline"></ion-icon>
+        Home
+      </ion-button>
+     
+    </ion-buttons>
+    <div *ngIf="loggedIn== true">
+      <ion-title   text="centered" class="loginName">
+        Logged in as {{ currentLoginName}}
+      </ion-title>
+    </div>
+    <div *ngIf="loggedIn== false">
+      <ion-title class="loginName">Login</ion-title>
+    </div>
+   
+  
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+<!-- <p>Enter your username</p> -->
+<!-- position="stacked" -->
+
+  <ion-item  *ngIf="loggedIn== false" class="emailPW">
+    <ion-label floating>Email address</ion-label>
+    <ion-input type="text" [(ngModel)]="username" 
+      [disabled]="loggedIn == true"
+      placeholder='Email address' 
+      position="stacked" 
+      autofocus="true">
+    </ion-input>
+    
+    <ion-label floating>Password</ion-label>
+    <ion-input type="text" [(ngModel)]="password" 
+      placeholder='Password' 
+      [disabled]="loggedIn == true"
+      position="stacked" 
+      (keyup.enter)="loginUser()"
+      type="password">
+    </ion-input>
+  </ion-item>
+
+  <ion-list>
+    <ion-item *ngIf="loggedIn== false" class="loginBtn" slot="end">
+      <ion-button 
+      position="stacked" 
+      type="submit" [disabled]="loggedIn == true" expand="block"  
+      (click)="loginUser()">Login</ion-button>
+     
+      <ion-button slot="end"
+      [disabled]="loggedIn== true || username.length < 6" 
+      position="stacked" 
+      expand="block" (click)="forgotPassword()">Reset Password</ion-button> 
+      <!-- <ion-icon name="bandage-outline"></ion-icon> -->
+    </ion-item>
+
+    <ion-item *ngIf="loggedIn== true" class="logoutBtn" slot="end">
+      <ion-button 
+      [disabled]="loggedIn != true" 
+      position="stacked" 
+      expand="block" (click)="logout()">Logout</ion-button>
+    </ion-item>
+    
+   
+   
+    <!-- <ion-button [disabled]="loggedIn == true" expand="block" color="secondary" (click)="register()">Register</ion-button> -->
+  </ion-list>
+
+
+  <!-- <ion-item> -->
+    <!-- <ion-label floating>Password</ion-label> -->
+    <!-- <ion-input type="password" [(ngModel)]="password"></ion-input> -->
+  <!-- </ion-item> -->
+
+</ion-content>

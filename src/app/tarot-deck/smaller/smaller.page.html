@@ -1,0 +1,78 @@
+<!-- I'm just replacing all of this with the diary html - then removing what doesn't work on small screens
+ -->
+
+
+
+ <ion-header>
+  <ion-toolbar color="indigold" >
+    <ion-buttons slot="primary">
+      <ion-button (click)="goHome()">
+        <ion-icon name="home-outline"></ion-icon>
+        Home
+      </ion-button> 
+    </ion-buttons>
+
+    <ion-title class="ion-text-left">My (smaller) Tarot Diary</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+ 
+
+<ion-content contentId="main">
+
+  <div *ngIf="myThrowsReadyForRendering != undefined && myThrowsReadyForRendering.length > 0">
+    <!-- <ion-virtual-scroll scrollY="true"> -->
+    <ion-list *ngFor="let throw of myThrowsReadyForRendering; let i=index;" lines="none"
+    class="accordian-list"
+      details="false">
+      <ng-template [ngIf]="throw.throwDeleted">
+        <ion-item>
+          <h3>(Throw deleted)</h3>
+        </ion-item>
+        
+      </ng-template>
+
+
+      <ng-template [ngIf]="!throw.throwDeleted">
+        
+          <ion-item tappable (click)="toggleSelection(i)" [ngClass]="{'section-active': throw.open,
+            'section': !throw.open}">
+            
+            <ion-label >
+              <h3 class="head-type">{{ throw.readingName}}   </h3>
+              <h2 class="head-subject">{{ throw.subject }}</h2>
+              <h3 class="head-date">{{ throw.displayDateTime }}  </h3>
+              <div class="multiline">  {{ throw.comment}} </div> 
+          
+              <app-tablehelp *ngIf="throw.open">
+                [tarotThrow]='throw' [data]='throw'
+              </app-tablehelp>
+            </ion-label>
+        
+          </ion-item>
+        </ng-template>
+    </ion-list>
+  <!-- </ion-virtual-scroll> -->
+  </div>
+  
+
+
+
+  <div *ngIf="myThrowsReadyForRendering == undefined || myThrowsReadyForRendering.length == 0">
+    <ion-card>
+      <ion-card-header>
+        <div *ngIf="noThrowsSavedYet == true">
+          <ion-card-content>Readings you've saved will be displayed here </ion-card-content>
+        </div>
+        <ion-card-title> </ion-card-title>
+        <!-- <ion-card-title>No tarot throws have been saved yet</ion-card-title> -->
+        <!-- <ion-card-subtitle> save some throws first, then you can look at your diary</ion-card-subtitle> -->
+      </ion-card-header>
+    </ion-card>
+   
+  </div>
+
+  
+</ion-content>
+
+

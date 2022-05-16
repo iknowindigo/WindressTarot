@@ -1,0 +1,129 @@
+.button-container {
+    align-self: flex-end;
+    text-align: right;
+}
+
+.resultTop {
+    margin-top: 5px;
+    text-align: center;
+    align-self: flex-end;
+}
+
+.alignTextMiddle {
+    // display: flex;
+    align-items: center;
+}
+
+
+ion-col.textCentered {
+    text-align: center;
+  }
+
+  ion-col.textLeft {
+    text-align: left;
+  }
+
+  ion-item {
+    // border: 1px solid #7299ec;
+    margin: 5px;
+    background: black;
+  }
+  
+.item-content {
+    background-color:#ffffff;
+  }
+
+  .bgcolor {
+    background: #cdcfd6;
+  }
+  
+  .oneCard {
+    border: 2px solid #aeb7ca;
+  }
+
+.home {
+    scroll-content {
+        display: flex;
+        flex-direction: column;
+    }
+
+    ion-grid {
+        padding: 0;
+        height: 100%;
+    }
+
+    ion-row {
+        flex: 1;
+    }
+
+}
+
+.cardResult {
+  width:  300px; 
+  height: 300px
+}
+
+.subject_input {
+  display: block;
+  position: absolute;
+  width: 100%;
+  top: 0px;
+  background: rgb(55, 49, 240);
+  color: rgb(255, 241, 163)
+}
+
+.comment_input {
+  display: block;
+  position: absolute;
+  padding-top: 0px;
+  width: 100%;
+  top: 30px;
+  color: white;
+  background: rgb(6, 15, 71);
+}
+
+.button_holder {
+  display: block;
+  width: 100%;
+  // top:87px;
+  // padding-bottom: 80px;
+  color: white;
+  background: rgb(6, 15, 71) !important;
+}
+
+.results-heading {
+  color: white;
+  background: rgb(6, 15, 71) !important;
+}
+
+.result-subject {
+  color: white;
+  background: rgb(6, 15, 71) !important;
+  padding: 3px;
+//  white-space: normal;
+white-space: pre-wrap;  // g.s. 4-21-22
+  //   overflow-wrap: break-word;
+    overflow-wrap: break-word; 
+    word-wrap: break-word;
+    display: block;
+    width: auto;
+    font-size: small;
+}
+.results-type {
+  color: white;
+  background: rgb(6, 15, 71)  !important;
+  padding: 3px;
+}
+.button-results {
+  color: white;
+  background: rgb(6, 15, 71);
+  border: burlywood, 3px, dotted;
+}
+// .accordian-list {
+//   top: 120px;
+//   padding-top: 30px;
+// }
+
+// .section-active {
+//   top: 120px;
+// }

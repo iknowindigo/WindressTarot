@@ -1,0 +1,35 @@
+.modal-fullscreen {
+    .modal-wrapper {
+        position: absolute;
+        top: 0;
+        left: 0;
+        display: block;
+        width: 100%;
+        height: 100%;
+    }
+}
+.fullscreen-image {
+  max-width: 90%;
+  max-height: 90%;
+  bottom: 0;
+  left: 0;
+  margin: auto;
+  overflow: auto;
+  position: fixed;
+  right: 0;
+  top: 0;
+}
+.transparent {
+    background: transparent !important;
+  }
+  .image-modal {
+    width: 100% !important;
+    height: 100%;
+    top: 0 !important;
+    left: 0 !important;
+  }
+  
+  * {
+    color: white;
+    background-color: rgb(8, 20, 94);
+  }

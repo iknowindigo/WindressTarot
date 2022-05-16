@@ -1,0 +1,44 @@
+<ion-header >
+
+  <ion-toolbar color="indigold"  >
+    <ion-buttons slot="primary">
+      
+      <ion-button (click)="close()">
+        Cancel
+        <ion-icon name="close-outline"></ion-icon>
+      </ion-button>
+      
+    </ion-buttons>
+    <ion-title class="ion-text-center">Search Readings for specific card:</ion-title>
+  </ion-toolbar>
+</ion-header> 
+
+<ion-content>
+ 
+    <select class="select-css" (change)="selectChangeTop($event)">
+      <option value="0">Select Suit:</option>
+      <option value="1">Pentacles</option>
+      <option value="2">Swords</option>
+      <option value="3">Wands</option>
+      <option value="4">Cups</option>
+      <option value="5">Ankhs</option>
+      <option value="6">Major Arcana</option>
+      
+    </select>
+
+    <!-- <br><br> -->
+    <ion-label>Select Card to Search on</ion-label>
+
+    <select class="select-css" (change)="selectChangeLower($event)">
+      <option *ngFor="let card of textForLowerDropdown let i=index;" 
+          value="card"
+          >
+          {{card}}
+          
+        </option>
+    </select>
+
+    <ion-button [disabled]="!enableSearch" (click)="DoTheSearch()">Search for this card</ion-button>
+
+ <!-- <input type = "submit" value = "Submit" /> -->
+</ion-content>

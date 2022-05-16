@@ -1,0 +1,169 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title class="ion-text-center" >Friends</ion-title>
+    
+    <ion-buttons slot="primary">
+      <ion-button (click)="goHome()"> 
+        <ion-icon name="home-outline"></ion-icon>
+      </ion-button >
+      <ion-label class="loginName">
+        {{displayName}} 
+      </ion-label>
+      <ion-menu-button ></ion-menu-button>
+   
+    </ion-buttons>
+  </ion-toolbar>
+
+</ion-header>
+<!-- scroll-event-interval="5" -->
+
+<ion-content >
+
+  <!-- 1-search
+  2-active friend requests
+  3-my requests - ability to cancel
+  4-list of my friends
+  5-suggested - friends of friends
+  6- only if previous all blank - active users -->
+
+  <h3> Search: {{searchDisplay}}  </h3>
+  <ion-searchbar placeholder="Enter Friends Name"
+    [(ngModel)] = "searchTerm"
+      (search)="onSearch($event)" 
+      color="tertiary"
+    >
+  </ion-searchbar>
+
+  <div *ngIf="searchedFriends != undefined && searchedFriends.length > 0">
+    <h3>Found:</h3>
+
+    <ion-list *ngFor="let usr of searchedFriends; let i=index;" lines="none"
+        class="accordian-list"
+        insert="true"
+        lines="full"
+          details="false">
+       <!-- <div  *ngIf="usr.friend != true"> -->
+          <ion-card class="card-friend">
+            <ion-item>
+              <ion-avatar slot="start">
+                <img [src] = "usr.profilePicURL">
+              </ion-avatar>
+              <ion-label>
+                {{ usr.nickName }} - {{ usr.firstName}}, {{ usr.lastName}} - {{ usr.email }}
+              </ion-label>
+            </ion-item>
+            <div  *ngIf="usr.friend != true">
+              <ion-button (click)="addFriend(usr.userID, usr.email)">Friend Request</ion-button>
+            </div>
+            
+            <ion-card-content>
+              {{ usr.notes}} -  {{ usr.interests}}
+            </ion-card-content>
+          </ion-card>
+      <!-- </div> -->
+    </ion-list>          
+  </div>
+
+  <div *ngIf="friendRequests != undefined && friendRequests.length > 0">
+    <h3>Friend Requests:</h3>
+    <ion-list *ngFor="let usr of friendRequests; let i=index;" lines="none"
+        class="accordian-list"
+        insert="true"
+        lines="full"
+          details="false">
+          <ion-card  class="card-friend">
+            <ion-item>
+              <ion-avatar slot="start">
+                <img [src] = "usr.profilePicURL">
+              </ion-avatar>
+              <ion-label>
+                {{ usr.nickName }} - {{ usr.firstName}}, {{ usr.lastName}} - {{ usr.email }}
+              </ion-label>
+            </ion-item>
+            <ion-button (click)="acceptFriend(usr.userID)">Confirm</ion-button>
+            <ion-button (click)="rejectFriend(usr.userID)" color="light">Not now</ion-button>
+            <ion-card-content>
+              {{ usr.notes}} -  {{ usr.interests}}
+            </ion-card-content>
+          </ion-card>
+        </ion-list>
+  </div>
+
+  <!-- list of my active friend requests -->
+  <div *ngIf="requestsIMade != undefined && requestsIMade.length > 0">
+    <h3>Friend requests I've made:</h3>
+    <ion-list *ngFor="let usr of requestsIMade; let i=index;" lines="none"
+    class="accordian-list"
+    insert="true"
+    lines="full"
+      details="false">
+    <ion-card  class="card-friend">
+      <ion-item>
+        <ion-avatar slot="start">
+          <img [src] = "usr.profilePicURL">
+        </ion-avatar>
+        <ion-label>
+          {{ usr.nickName }} - {{ usr.firstName}}, {{ usr.lastName}} - {{ usr.email }}
+        </ion-label>
+      </ion-item>
+      <ion-button (click)="cancelRequest(usr.userID)" color="light">Cancel Request</ion-button>
+      <ion-card-content>
+        {{ usr.notes}} -  {{ usr.interests}}
+      </ion-card-content>
+    </ion-card>
+</ion-list>   
+  </div>
+ 
+  <div *ngIf="myFriends != undefined && myFriends.length > 0">
+    <h3>My Friends:</h3>
+    <ion-list *ngFor="let usr of myFriends; let i=index;" lines="none"
+        class="accordian-list"
+        insert="true"
+        lines="full"
+          details="false">
+        <ion-card  class="card-friend">
+          <ion-item>
+            <ion-avatar slot="start">
+              <img [src] = "usr.profilePicURL">
+            </ion-avatar>
+            <ion-label>
+              {{ usr.nickName }} - {{ usr.firstName}}, {{ usr.lastName}} - {{ usr.email }}
+            </ion-label>
+          </ion-item>
+          <ion-button (click)="unFriend(usr.userID)" color="warning">Unfriend</ion-button>
+          <ion-card-content>
+            {{ usr.notes}} -  {{ usr.interests}}
+          </ion-card-content>
+        </ion-card>
+    </ion-list>   
+  </div>
+
+  <div *ngIf="possibleFriends != undefined && possibleFriends.length > 0">
+    <h3>Users you may be interested in....</h3>
+
+    <ion-list *ngFor="let usr of possibleFriends; let i=index;" lines="none"
+        class="accordian-list"
+        insert="true"
+        lines="full"
+          details="false">
+        
+        <ion-card  class="card-friend">
+          <ion-item>
+            <ion-avatar slot="start">
+              <img [src] = "usr.profilePicURL">
+            </ion-avatar>
+            <ion-label>
+              {{ usr.nickName }} - {{ usr.firstName}}, {{ usr.lastName}} - {{ usr.email }}
+            </ion-label>
+          </ion-item>
+          <ion-button (click)="addFriend(usr.userID, usr.email)">Friend Request</ion-button>
+         
+          <ion-card-content>
+            {{ usr.notes}} -  {{ usr.interests}}
+          </ion-card-content>
+        </ion-card>
+    </ion-list>          
+  </div>
+
+
+</ion-content>

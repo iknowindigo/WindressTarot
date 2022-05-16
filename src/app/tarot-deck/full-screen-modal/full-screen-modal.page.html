@@ -1,0 +1,17 @@
+<ion-header>
+  <ion-toolbar color="indigold"  >
+    <ion-buttons slot="primary">
+      <ion-button (click)="closeModal()">
+        <ion-icon name="close-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title class="ion-text-center">{{cardDetails.positionText}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+ 
+<ion-content>
+  <ion-content class="transparent">
+    <ion-img [src]="cardDetails.card.imageUrl" class="fullscreen-image"></ion-img>
+  </ion-content>
+
+</ion-content>

@@ -1,0 +1,74 @@
+<ion-header>
+  <ion-toolbar  color="indigold" >
+    <ion-buttons slot="primary">
+      <ion-button (click)="closeModal()">
+        <ion-icon name="close-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title class="ion-text-center">{{cardDetails.positionText}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="main-view">
+
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <ion-grid>
+          <ion-row>
+            <!-- <ion-item> -->
+            <ion-img [src]="cardDetails.card.imageUrl" class="cardDetail"  (click)="clickedCard()"></ion-img>
+          <!-- </ion-item> -->
+            <ion-col>
+         
+            <ion-grid>
+              <!-- trying to embed title and key next to image -->
+              <ion-row>
+                <ion-col>
+                  <div class="cardText" >
+                    {{cardDetails.card.title}}
+                  </div>
+                  
+                </ion-col>
+              </ion-row>
+              <ion-row>
+                <ion-col>
+                  <div class="cardText" >
+                    {{cardDetails.card.key}}
+                  </div>
+                 
+                </ion-col>
+              </ion-row>
+            </ion-grid>
+            
+               
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col>
+            
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+ 
+      </ion-col>
+      
+    </ion-row>
+    <ion-row>
+      <ion-item>
+        <div class="cardText" >
+          {{cardDetails.card.comment}}
+        </div>
+        
+      </ion-item>
+      <ion-item>
+        <div class="cardText" >
+          {{cardDetails.card.thoughts}}
+        </div>
+       
+      </ion-item>
+    </ion-row>
+  </ion-grid>
+
+
+</ion-content>

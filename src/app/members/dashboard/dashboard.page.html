@@ -1,0 +1,144 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Dashboard</ion-title>
+    <ion-buttons slot="primary">
+      <ion-button (click)="goHome()"> 
+        <ion-icon name="home-outline"></ion-icon>
+      </ion-button >
+      <ion-label class="loginName">
+        {{displayName}} 
+      </ion-label>
+     
+      <ion-menu-button ></ion-menu-button>
+   
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+<h3>All tarot readings:</h3>
+<h4>Summary of all (saved) readings....</h4>
+<li>Total readings: {{ allThrowCounts.numTotalThrows }}</li>
+<!-- <li>Readings not processed: {{ allThrowCounts.skippedUsers }}</li> -->
+<ul>
+  <li>Single Card: {{allThrowCounts.numSingleCard}}</li>
+  <li>Three Cards: {{allThrowCounts.numThreeCard}}</li>
+  <li>pyramid: {{allThrowCounts.numPyramid}}</li>
+  <li>memory game: {{ allThrowCounts.numMemoryGame }} </li>
+  <hr>
+  <!-- <li>(July 2020): {{allThrowCounts.cnt0720 }}</li>
+  <li>(August): {{allThrowCounts.cnt0820 }}</li>
+  <li>(September): {{allThrowCounts.cnt0920 }}</li>
+  <li>(October): {{allThrowCounts.cnt1020 }}</li>
+  <li>(November): {{allThrowCounts.cnt1120 }}</li>
+  <li>(December): {{allThrowCounts.cnt1220 }}</li>
+  <li>(January 2021): {{allThrowCounts.cnt0121 }}</li>
+  <li>(february): {{allThrowCounts.cnt0221 }}</li>
+  <li>(March): {{allThrowCounts.cnt0321 }}</li>
+  <li>(April): {{allThrowCounts.cnt0421 }}</li>
+  <li>(May): {{allThrowCounts.cnt0521 }}</li>
+  <li>(June 2021): {{allThrowCounts.cnt0621 }}</li> -->
+  <li>(July 2020): {{allThrowCounts.cnt0720 }}</li>
+  <li>(August 2020): {{allThrowCounts.cnt0820 }}</li>
+  <li>(September 2020): {{allThrowCounts.cnt0920 }}</li>
+  <li>(October 2020): {{allThrowCounts.cnt1020 }}</li>
+  <li>(November 2020): {{allThrowCounts.cnt1120 }}</li>
+  <li>(December 2020): {{allThrowCounts.cnt1220 }}</li>
+  <li>(January 2021): {{allThrowCounts.cnt0121 }}</li>
+  <li>(February  2021): {{allThrowCounts.cnt0221 }}</li>
+  <li>(March 2021): {{allThrowCounts.cnt0321 }}</li>
+  <li>(April 2021): {{allThrowCounts.cnt0421 }}</li>
+  <li>(May 2021): {{allThrowCounts.cnt0521 }}</li>
+  <li>(June 2021): {{allThrowCounts.cnt0621 }}</li>
+
+  <li>(July 2021): {{allThrowCounts.cnt0720 }}</li>
+  <li>(August 2021): {{allThrowCounts.cnt0821 }}</li>
+  <li>(September 2021): {{allThrowCounts.cnt0921 }}</li>
+  <li>(October 2021): {{allThrowCounts.cnt1021 }}</li>
+  <li>(November 2021): {{allThrowCounts.cnt1121 }}</li>
+  <li>(December 2021): {{allThrowCounts.cnt1221 }}</li>
+  <li>(January 2022): {{allThrowCounts.cnt0122 }}</li>
+  <li>(February  2022): {{allThrowCounts.cnt0222 }}</li>
+  <li>(March 2022): {{allThrowCounts.cnt0322 }}</li>
+  <li>(April 2022): {{allThrowCounts.cnt0422 }}</li>
+  <li>(May 2022): {{allThrowCounts.cnt0522 }}</li>
+  <!-- <li>(June 2022): {{allThrowCounts.cnt0622 }}</li>
+
+  <li>(July 2022): {{allThrowCounts.cnt0722 }}</li>
+  <li>(August 2022): {{allThrowCounts.cnt0822 }}</li>
+  <li>(September 2022): {{allThrowCounts.cnt0922 }}</li>
+  <li>(October 2022): {{allThrowCounts.cnt1022 }}</li>
+  <li>(November 2022): {{allThrowCounts.cnt1122 }}</li>
+  <li>(December 2022): {{allThrowCounts.cnt1222 }}</li>
+   // more to come! - I have 2023 collected 
+  <li>(January 2023): {{allThrowCounts.cnt0123 }}</li>
+  <li>(February  2023): {{allThrowCounts.cnt0232 }}</li>
+  <li>(March 2023): {{allThrowCounts.cnt0323 }}</li>
+  <li>(April 2023): {{allThrowCounts.cnt0423 }}</li>
+  <li>(May 2023): {{allThrowCounts.cnt0523 }}</li>
+  <li>(June 2023): {{allThrowCounts.cnt0623 }}</li>
+
+  <li>(July 2023): {{allThrowCounts.cnt0723 }}</li>
+  <li>(August 2023): {{allThrowCounts.cnt0823 }}</li>
+  <li>(September 2023): {{allThrowCounts.cnt0923 }}</li>
+  <li>(October 2023): {{allThrowCounts.cnt1023 }}</li>
+  <li>(November 2023): {{allThrowCounts.cnt1123 }}</li>
+  <li>(December 2023): {{allThrowCounts.cnt1232 }}</li> --> 
+</ul>
+<!-- <h4> {{refreshText}}</h4> -->
+<div *ngIf="includeIndividualThrowsCounts == true">
+  <ion-list *ngFor="let read of throwCounts; let i=index;" lines="none">
+    <li>{{read.userEmail}}</li>
+    <ul>
+      <li>Total readings: {{ read.numTotalThrows }}</li>
+      <li>single card: {{ read.numSingleCard }}</li>
+      <li>three cards: {{ read.numThreeCard }}</li>
+      <li>pyramid: {{ read.numPyramid }}</li>
+      
+    </ul>
+  </ion-list>
+</div>
+
+<!-- <h3>Logins:</h3> -->
+<h3>logins to reworked app:</h3>
+<div *ngIf="classicFolk != undefined && classicFolk.length > 0">
+
+  <ion-list *ngFor="let folk of classicFolk; let i=index;" lines="none"
+    lines="full"
+    details="false">
+    <div *ngIf="folk.status.length > 0">
+      <li>{{folk.userEmail}}</li>
+      <ul>
+        <li>last login: {{folk.lastLoginTime}}</li>
+        <li>Total readings: {{folk.totalThrows}}</li>
+        <li>Single card: {{folk.singleCard}}</li>
+        <li>Three cards: {{folk.threeCards}}</li>
+        <li>Pyramid: {{folk.pyramidCards}}</li>
+        <li>Memory Game: {{folk.memoryGame}}</li>
+        <li>Nine Ray: {{folk.nineRay}}</li>
+      </ul>
+    </div>
+  </ion-list>
+</div>
+
+<!-- <h5>logins to social app</h5>
+<h5>Counts are only valid for friends of mine...</h5>
+  <div *ngIf="dashFolks != undefined && dashFolks.length > 0">
+
+    <ion-list *ngFor="let folk of dashFolks; let i=index;" lines="none"
+      lines="full"
+      details="false">
+      <div *ngIf="folk.status.length > 0">
+        <li>{{folk.userEmail}}</li>
+        <ul>
+          <li>last login: {{folk.lastLoginTime}}</li>
+          <li>has {{folk.numFriends}} friends</li>
+          <li>friends? {{ folk.status }}</li>
+          <li>number of posts: {{ folk.numPosts }}</li>
+          <li>number of comments: {{folk.numComments }}</li>
+        </ul>
+      </div>
+    </ion-list>
+  </div> -->
+
+</ion-content>

@@ -1,0 +1,136 @@
+<ion-list class="cntxtList">
+
+  <div *ngIf="throwMenu==true">
+    
+      <ion-item  button (click)="afterClick(100)" class="contxt">
+        <ion-icon name="arrow-down-circle-outline"></ion-icon>
+        Save Reading as PDF
+      </ion-item>
+    
+    <div *ngIf="throwNotSaved==false && socialThrowMenu==false">
+      <ion-item  button (click)="afterClick(101)" class="contxt">
+        <ion-icon name="create-outline"></ion-icon>
+        Edit
+      </ion-item>
+      <ion-item  button (click)="afterClick(102)" class="contxt">
+        <ion-icon name="share-social-outline"></ion-icon>
+        Share Reading
+      </ion-item>
+      <ion-item  button (click)="afterClick(103)" class="contxt">
+        <ion-icon name="close-circle-outline"></ion-icon>
+        Remove Reading
+      </ion-item>
+
+      <div *ngIf="smallScreen==false">
+        <ion-item  button (click)="afterClick(104)" class="contxt">
+          <ion-icon name="document-attach-outline"></ion-icon>
+          Assign to folder
+        </ion-item>
+
+        <ion-item  button (click)="afterClick(105)" class="contxt">
+          <ion-icon name="folder-outline"></ion-icon>
+          Create New Folder
+        </ion-item>
+        
+        <div *ngIf="folderSource==true">
+          <ion-item  button (click)="afterClick(106)" class="contxt">
+            <ion-icon name="push-outline"></ion-icon>
+            Remove from folder
+          </ion-item>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  
+
+  <div *ngIf="replyMenu== true" class="=divRight">
+    Reply to comment: Not yet implemented...  Soon
+  </div>
+  <!-- <ion-list-header>Ionic</ion-list-header> -->
+  <div *ngIf="showFR== true" class="=divRight">
+    <div class="ion-text-center">
+      Friend request(s)...
+    </div>
+    <ion-list *ngFor="let nme of requestNames; let i=index;"  class="cntxtList">
+      <ion-item href="friends">
+        {{nme}}
+        <ion-avatar slot="start">
+          <img [src] = "friendRequests[i].pictureURL">
+        </ion-avatar>
+      </ion-item>
+    </ion-list>
+  </div>
+
+  <div *ngIf="showCommentTargets==true" class="divRights">
+    <div class="ion-text-center">
+      Comments on your posts...
+    </div>
+    
+    <ion-list *ngFor="let nme of commentLinks; let i=index;"  class="cntxtList">
+      <ion-item href={{commentHref[i]}} button (click)="afterClick(5)" text-center  >
+        {{nme}}
+        <ion-avatar slot="start">
+          <img [src] = "commentBadgeInfo[i].pictureURL">
+        </ion-avatar>
+      </ion-item>
+    </ion-list>
+  </div>
+
+  <div *ngIf="socialMenu == true" >
+    <!-- <ion-item button (click)="afterClick(0)" text-center class="cntxtList">
+      <ion-icon name="heart-outline" style="margin-right: 10px"></ion-icon>
+      Like
+    </ion-item>  -->
+    <!-- <ion-item button (click)="afterClick(1)" class="ion-text-end">
+      <ion-icon name="chatbox-ellipses-outline" style="margin-right: 10px"></ion-icon>
+      Comment
+    </ion-item> -->
+    <div *ngIf="editComment == true" >
+      <ion-item  button (click)="afterClick(2)" text-center class="cntxtList">
+        <ion-icon name="create-outline" style="margin-right: 10px"></ion-icon>
+        Edit post
+      </ion-item>
+    </div>
+    <div *ngIf="deleteComment == true" >
+      <ion-item  button (click)="afterClick(3)" text-center class="cntxtList">
+        <ion-icon name="close-outline" style="margin-right: 10px"></ion-icon>
+        Delete post
+      </ion-item>
+    </div>
+      
+    
+
+    <!-- <div *ngIf="showFR == false && showCommentTargets==false" class="=divRight">
+      <div *ngIf="replyMenu== false" class="=divRight">
+        <div *ngIf="userOwnsThis==false" class="=divRight">
+          <ion-item button (click)="afterClick(0)" text-center class="cntxtList">
+            <ion-icon name="heart-outline" style="margin-right: 10px"></ion-icon>
+            Like
+          </ion-item> 
+          <ion-item button (click)="afterClick(1)" class="ion-text-end">
+            <ion-icon name="chatbox-ellipses-outline" style="margin-right: 10px"></ion-icon>
+            Comment
+          </ion-item>
+        </div>
+      </div>
+    </div> -->
+    <div *ngIf="socialAddPDF==true">
+      <ion-item  button (click)="afterClick(100)" text-center class="cntxtList">
+        <ion-icon name="arrow-down-circle-outline"></ion-icon>
+        Save Reading as PDF
+      </ion-item>
+    </div>
+    
+    <!-- <div *ngIf="userOwnsThis==true" >
+      <ion-item  button (click)="afterClick(2)" text-center class="cntxtList">
+        <ion-icon name="create-outline" style="margin-right: 10px"></ion-icon>
+        Edit post
+      </ion-item>
+      <ion-item  button (click)="afterClick(3)" text-center class="cntxtList">
+        <ion-icon name="close-outline" style="margin-right: 10px"></ion-icon>
+        Delete post
+      </ion-item>
+    </div> -->
+  </div>
+</ion-list>

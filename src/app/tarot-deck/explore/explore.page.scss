@@ -1,0 +1,18 @@
+.cardToPick {
+    cursor: pointer;
+    transition: 0.3s;
+    // width:  99px; 
+    // height: 99px
+    // width:  128px; 
+    // height: 76px
+   
+}
+
+.cardToPick:hover {
+    // transform: rotate(360deg) scale(1.5);
+    transform: scale(1.2);
+} 
+
+.cardToPick::selection {
+    transform: rotate(360deg);
+}

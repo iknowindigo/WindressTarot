@@ -1,0 +1,18 @@
+.replyClass {
+    margin-bottom: 0!important;
+    border: 1px solid #dedede;
+    border-radius: 4px;
+    --ion-background-color:#fff;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+ion-item {
+    padding:-2px;
+    --ion-background-color: blue;
+    background: blue; 
+  }
+
+  ion-input{
+    --background: rgb(9, 15, 66);
+    }

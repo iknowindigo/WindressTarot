@@ -1,0 +1,53 @@
+<ion-header >
+
+  <ion-toolbar color="indigold" color="tertiary" >
+    <ion-buttons slot="primary">
+      <ion-button [disabled]="busyWorking" (click)="SaveComment()">
+        {{commentControl.saveText}} 
+        <ion-icon name="save-outline"></ion-icon>
+      </ion-button>
+      <ion-button (click)="close()">
+        Cancel
+        <ion-icon name="close-outline"></ion-icon>
+      </ion-button>
+      
+    </ion-buttons>
+    <ion-title class="ion-text-center" size="large" color="Danger">{{commentControl.caption}}</ion-title>
+  </ion-toolbar>
+</ion-header> 
+
+<ion-content>
+  <!-- <h1>Editing comment</h1> -->
+  <!-- <p> Data passed: {{ throw.comment }} rows="6" cols="5" </p> -->
+  <!-- <ion-item class="item-edit"> -->
+    <div *ngIf="commentControl.showSubject==true">
+      <ion-input class="subject_input" placeholder="Subject for Reading:"  
+      type="text" [(ngModel)]="subject">
+      </ion-input>
+    </div>
+    <!-- 10-10 assume if we hide subject we're going to share? -->
+    <div *ngIf="showSharingUI==true" class="comment_med">
+      <ion-label>Share with: </ion-label>
+      <select class="select-css" (change)="selectChangeTop($event)">
+        <option *ngFor="let sel of selectList let i=index;" 
+          value="card"
+          >
+          {{sel}}      
+        </option>
+        <!-- <option value="friends">Friends</option>
+        <option value="select">Select:</option> --> 
+      </select>
+      
+    </div>
+
+    <!-- 4-21-22 I took this out of text area (keyup.enter)="SaveComment()" -->
+    <ion-textarea class="comment_input"
+      id="theComment" spellcheck="true" wrap="soft" autogrow="true" 
+      placeholder="Comments..."
+     
+      [(ngModel)]="comment"
+        >
+    </ion-textarea>
+  <!-- </ion-item> -->
+
+</ion-content>

@@ -1,0 +1,21 @@
+.contxt {
+    // display: inline-block;
+    display: block;
+//   margin-left: 10em;
+}
+
+.divRight {
+    // margin-left: 10em;
+    // position: absolute;
+    left: 100px;
+    text-align: right;
+    float: right;
+}
+
+.cntxtList {
+    position: relative;
+    width: 100%;
+    cursor: pointer;
+    background-color: rgb(13, 18, 49);
+    // left: 20px;
+}

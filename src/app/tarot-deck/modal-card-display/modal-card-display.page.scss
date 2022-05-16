@@ -1,0 +1,21 @@
+ion-item {
+    // border: 1px solid #7299ec;
+    margin: 5px;
+    background: black;
+  }
+
+  @media (min-width: 680px) {
+    .mymodal {  
+       width: 140%; 
+       height: 140%; 
+       top: 5%; 
+       left: 5%; 
+       right: 5%; 
+       bottom: 5%;
+    }
+  }
+
+  .cardDetail {
+    width: 210px; 
+    height: 210px
+  }

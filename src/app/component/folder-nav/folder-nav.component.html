@@ -1,0 +1,98 @@
+<p></p>
+<p>
+  hmm
+</p>
+
+<!-- <label for="cars">Choose a car:</label>
+<select id="cars">
+  <optgroup label="Swedish Cars">
+    <option value="volvo">Volvo</option>
+    <option value="saab">Saab</option>
+  </optgroup>
+  <optgroup label="German Cars">
+    <option value="mercedes">Mercedes</option>
+    <option value="audi">Audi</option>
+  </optgroup>
+</select> -->
+
+<div class = "MyFolderlist"> 
+  <!-- <div class = "item item-divider">Item Divider 1</div> -->
+  <!-- I don't know why - but these are located in the caption area - so I'm just kludging and hiding them -->
+  <!-- <div class = "filler-item">  </div>
+  <div class = "filler-item">  </div>
+  <div class = "filler-item">  </div> -->
+ 
+
+  <!-- <div (click)="setAllReadings()" class = "SelectedMenuItem" id="setAll">All Readings</div>
+  <div (click)="setOneCard()" class = "MenuItem" id="setOne">One Card </div>
+  <div (click)="setThreeCards()" class = "MenuItem" id="setThree">Three Cards</div>
+  <div (click)="setPyramidReadings()" class = "MenuItem" id="setPyramid">Pyramid </div> -->
+
+  <div (click)="setAllReadings()"  style="cursor:pointer"
+    [ngClass] = "{'SelectedMenuItem': menuAllRead == true }" 
+    id="setAll">{{decorateAllReadings}}</div>
+  <div (click)="setOneCard()"  style="cursor:pointer"
+    [ngClass] = "{'SelectedMenuItem': menuOneCard == true }" 
+    id="setOne"> {{ decorateOneCard }} </div>
+  <div (click)="setThreeCards()"  style="cursor:pointer"
+    [ngClass] = "{'SelectedMenuItem': menuThreeCards == true }" 
+    id="setThree"> {{ decorateThreeCards }}</div>
+  <div (click)="setPyramidReadings()"  style="cursor:pointer"
+    [ngClass] = "{'SelectedMenuItem': menuPyramid == true }" 
+    id="setPyramid">{{ decoratePyramid }}</div>
+    <div (click)="setMemoryReadings()"  style="cursor:pointer"
+    [ngClass] = "{'SelectedMenuItem': menuMemory == true }" 
+    id="setMemory">{{ decorateMemory }}</div>
+
+    <div *ngIf="decoratedRayList != undefined && decoratedRayList.length > 0">
+      <div class="MenuDummy">------ Nine Ray Readings ------</div>
+      <div style="cursor:pointer"
+        [ngClass] = "{'SelectedMenuItem': rayIndex == i }"   
+        (click)="SetRayReading(folder.folderID[0])"
+        #FolderSelectId 
+        *ngFor="let folder of decoratedRayList; let i=index;"> {{folder.name}} 
+      </div>
+    </div>
+   
+
+    <!-- <ion-fab slot="fixed"  center vertical="bottom">   add-circle-outline-->
+      <ion-fab center middle #fabRef>
+        <button ion-fav large type="button">
+          <ion-icon name="ellipsis-horizontal-circle-outline" style="zoom:1.5;"></ion-icon>
+        </button>
+       
+        <ion-fab-list side="bottom" #fabList>
+          <!-- <button ion-fab (click)="addFolder()">
+            <ion-icon name="add-circle-outline" style="zoom:1.5;"></ion-icon>
+            Create Folder</button> -->
+          
+          
+          <!-- <button ion-fab (click)="renameFolder()"  [disabled]="menuFolderIndex < 0"  >
+            <ion-icon name="pencil-outline" style="zoom:1.5;"></ion-icon> fab
+            Rename Folder</button> -->
+          <button ion-fab (click)="deleteFolder()" [disabled]="menuFolderIndex < 0" type="button">
+            <ion-icon name="create-outline" style="zoom:2.0;"></ion-icon>
+            Delete Folder</button>
+        </ion-fab-list>
+     
+    </ion-fab>
+  
+    
+    <div class="MenuDummy"> --------------- Folders ------ </div>
+  <div *ngIf="favoriteFolders != undefined && favoriteFolders.length > 0">
+    <!-- <div class="MenuDummy"> ----------- Folders ------ </div> -->
+    <!-- <app-droppable>
+      <ion-badge cursor="grab" color="primary"> hmm *ngFor="let folder of favoriteFolders; let i=index;"> {{folder.name}} </ion-badge> 
+     *ngFor="let folder of decoratedFolderList; let i=index;"> {{folder.name}} 
+    </app-droppable> -->
+   
+    <div style="cursor:pointer"
+      [ngClass] = "{'SelectedMenuItem': menuFolderIndex == i }"  
+      (click)="folderClicked(i)"
+      #FolderSelectId 
+       *ngFor="let folder of decoratedFolderList; let i=index;"> {{folder.name}} 
+    </div>
+  
+  </div>
+  
+</div> 

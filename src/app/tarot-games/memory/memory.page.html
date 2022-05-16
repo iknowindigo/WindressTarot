@@ -1,0 +1,132 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title class="ion-text-center" >Windress Memory Game </ion-title>
+    
+    <ion-buttons slot="primary">
+      <ion-button (click)="goHome()"> 
+        <ion-icon name="home-outline"></ion-icon>
+      </ion-button >
+      <ion-label class="loginName">
+        {{currentLoginName}} 
+      </ion-label>
+     
+      <ion-menu-button ></ion-menu-button>
+   
+    </ion-buttons>
+  </ion-toolbar>
+  <ion-toolbar color="secondary">
+    <!-- <ion-buttons slot="primary">
+      <ion-button (click)="newGame()">
+        New Game
+        <ion-icon name="caret-forward-circle-outline"></ion-icon>
+      </ion-button> -->
+    <!-- </ion-buttons> -->
+    <!-- <ion-title>Order by:</ion-title> -->
+    Score: {{ score }}
+    Remaining cards {{ remainingCount }}
+  </ion-toolbar>
+  <!-- <ion-toolbar color="tertiary">
+    Score:
+  </ion-toolbar> -->
+</ion-header>
+
+<ion-content contentId="main">
+ 
+  <div *ngIf="gameOver == true">
+    <h2>Game Over!  Well Done!</h2>
+    <h3>The cards you selected during this memory game were selected by Chance and Shabd for you to ponder. Arrange and rearrange them any way you want, in order to construct a story that will help you make sense of your world today.</h3>
+    <!-- <h3>Here are the first three cards you selected.</h3> -->
+    <div *ngIf="loggedIn == true">
+      <ion-button  size="small"
+      [disabled]="readingSavedToDiary==true"
+          (click)="saveTarotReading()"
+          >Save Reading to Diary</ion-button>
+
+          <ion-button size="small" (click)="newGame()"> Play Again </ion-button>
+          <ion-button size="small" (click)="goDiary()"  >Diary</ion-button>
+         
+    </div>
+    
+    <ion-grid>
+      <ion-row>
+        <ion-col width-10><img [src]=selectedSetOfCards[1].imageUrl  
+          (click)= "doneClick(selectedSetOfCards[1])"
+            class="cardSmall colBordered"></ion-col>
+        <ion-col width-10><img [src]=selectedSetOfCards[0].imageUrl 
+          (click)= "doneClick(selectedSetOfCards[0])"
+          class="cardMed colBordered"></ion-col>
+        <ion-col width-10><img [src]=selectedSetOfCards[2].imageUrl (click)= "doneClick(selectedSetOfCards[2])" class="cardSmall colBordered"></ion-col>
+      </ion-row> 
+     <ion-row>
+      <ion-col width-10 class="ion-text-center colBordered">  {{selectedSetOfCards[1].title}}  </ion-col>
+      <ion-col width-10 class="ion-text-center colBordered">  {{selectedSetOfCards[0].title}}  </ion-col>
+      <ion-col width-10 class="ion-text-center colBordered">  {{selectedSetOfCards[2].title}}  </ion-col>
+    </ion-row> 
+    <ion-row>
+      <ion-col width-10 class="ion-text-center colBordered">  {{selectedSetOfCards[1].key}}  </ion-col>
+      <ion-col width-10 class="ion-text-center colBordered">  {{selectedSetOfCards[0].key}}  </ion-col>
+      <ion-col width-10 class="ion-text-center colBordered">  {{selectedSetOfCards[2].key}}  </ion-col>
+    </ion-row> 
+      
+      <ion-row>
+        <ion-col width-10><img [src]=selectedSetOfCards[3].imageUrl (click)= "doneClick(selectedSetOfCards[3])" class="cardSmall colBordered"></ion-col>
+        <ion-col width-10><img [src]=selectedSetOfCards[4].imageUrl (click)= "doneClick(selectedSetOfCards[4])" class="cardSmall colBordered"></ion-col>
+        <ion-col width-10><img [src]=selectedSetOfCards[5].imageUrl (click)= "doneClick(selectedSetOfCards[5])" class="cardSmall colBordered"></ion-col>
+        <ion-col width-10><img [src]=selectedSetOfCards[6].imageUrl (click)= "doneClick(selectedSetOfCards[6])" class="cardSmall colBordered"></ion-col>
+        <ion-col width-10><img [src]=selectedSetOfCards[7].imageUrl (click)= "doneClick(selectedSetOfCards[7])" class="cardSmall colBordered"></ion-col>
+      </ion-row>
+      
+      <ion-row>
+        <ion-col width-10 class="ion-text-center colBordered">  {{selectedSetOfCards[3].title}}  </ion-col>
+        <ion-col width-10 class="ion-text-center colBordered">  {{selectedSetOfCards[4].title}}  </ion-col>
+        <ion-col width-10 class="ion-text-center colBordered">  {{selectedSetOfCards[5].title}}  </ion-col>
+        <ion-col width-10 class="ion-text-center colBordered">  {{selectedSetOfCards[6].title}}  </ion-col>
+        <ion-col width-10 class="ion-text-center colBordered">  {{selectedSetOfCards[7].title}}  </ion-col>
+      </ion-row> 
+    
+
+      <!-- <ion-row>
+        <ion-col width-10><img [src]=selectedSetOfCards[6].imageUrl class="cardSmall"></ion-col>
+        <ion-col width-10></ion-col>
+        <ion-col width-10><img [src]=selectedSetOfCards[7].imageUrl class="cardSmall"></ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col width-10 class="ion-text-center">Modifier 6</ion-col>
+        <ion-col width-10 class="ion-text-center"></ion-col>
+        <ion-col width-10 class="ion-text-center">Modifier 7</ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col width-10><img [src]=selectedSetOfCards[3].imageUrl class="cardSmall"></ion-col>
+        <ion-col width-10><img [src]=selectedSetOfCards[4].imageUrl class="cardSmall"></ion-col>
+        <ion-col width-10><img [src]=selectedSetOfCards[5].imageUrl class="cardSmall"></ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col width-10 class="ion-text-center">Modifier 3</ion-col>
+        <ion-col width-10 class="ion-text-center">Modifier 4</ion-col>
+        <ion-col width-10 class="ion-text-center">Modifier 5</ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col width-10><img [src]=selectedSetOfCards[1].imageUrl  class="cardSmall"></ion-col>
+        <ion-col width-10><img [src]=selectedSetOfCards[0].imageUrl class="cardMed"></ion-col>
+        <ion-col width-10><img [src]=selectedSetOfCards[2].imageUrl  class="cardSmall"></ion-col>
+      </ion-row> 
+      <ion-row>
+        <ion-col width-10 class="ion-text-center">Modifier 1</ion-col>
+        <ion-col width-10 class="ion-text-center">The Question</ion-col>
+        <ion-col width-10 class="ion-text-center">Modifier 2</ion-col>
+      </ion-row> -->
+
+    </ion-grid>
+  </div>
+  <div *ngIf="gameOver == false">
+    <ion-grid class="constrainGrid">
+      <ion-row class="pickCol">
+        {{refreshText}}
+          <ion-col size="3"  *ngFor="let card of shuffledTarotDeck; let i = index" class="pickCol">
+            <!-- <img [src]= "setOfCards[i].imageURL" class="cardToPick"  (click)= "cardClicked(card, i)" >   -->
+            <img [src]= "setOfCards[i].imageURL" class="cardToPick"  (click)= "cardClicked(card, i)" >  
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+</ion-content>

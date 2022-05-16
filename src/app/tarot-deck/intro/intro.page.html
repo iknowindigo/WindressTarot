@@ -1,0 +1,90 @@
+<ion-header >
+  <ion-toolbar color="indigold" >
+    <ion-buttons slot="primary">
+      <ion-button (click)="goHome()">
+        <ion-icon name="home-outline"></ion-icon>
+        Home
+      </ion-button> 
+    </ion-buttons>
+
+    <ion-title class="ion-text-left">Welcome to Windress Tarot </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<body style="overflow-y:scroll;">
+
+  
+
+  <!-- <ion-content>
+
+  </ion-content> -->
+
+  <!-- <br>
+  <h3>Here's a link to our founder's website</h3>
+  <a href="https://aow-highlands.net/"></a>
+  <br> -->
+
+
+  <!-- <p>To create a link that opens in the user's email program (to let them send a new email), use mailto: inside the href attribute:</p> -->
+  <!-- <br>
+  <a href="mailto:ultradianrhythm@gmail.com" style="padding-bottom: 30px;">Email us</a>
+  <br>
+  <a href="mailto:iknowindigo@gmail.com" style="padding-bottom: 30px;">Email me</a> -->
+  <!-- <a href="mailto:someone@example.com">Send us an width="560" height="315"  email</a> -->
+  
+ 
+  <iframe width="560" height="315" src="https://www.youtube.com/embed/zd6VI1quatI" 
+  style="padding: 40px;"
+  frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; 
+  picture-in-picture" allowfullscreen>
+  </iframe>
+
+  <br>
+  <br>
+  <a href="mailto:ultradianrhythm@gmail.com" style="padding-bottom: 30px;">Email us</a>
+  <br>
+  <a href="mailto:iknowindigo@gmail.com" style="padding-bottom: 30px;">Email me</a>
+<br >
+  <div style="overflow-y: scroll; float: left; ">
+
+    <ion-list *ngFor="let aLine of welcomeText; let i=index;" style="overflow-y: scroll;" >
+          
+      <div style="overflow-y: scroll; float: left;  ">  {{aLine}} </div>
+      
+    
+    </ion-list>
+
+  </div>
+
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <a href="https://aow-highlands.net/"></a>
+  <br>
+  <!-- We hope you’ll find value in some of these links:
+<a href="https://aow-highlands.net/"></a>
+<p>Some of the music composed by Katherine Windress Sharp, the founder of the Windress Tarot:</p>
+<a href="https://www.youtube.com/watch?v=2kqqZp2Wwd8&list=PLTfdwXlMX5JTpqNsqm26LOT7F5g93x5ES/"></a>
+<hr> -->
+<!-- <h3>You may contact us with this email address:</h3>
+<a href="mailto:ultradianrhythm@gmail.com">Email us</a> -->
+
+
+  
+  </body>
+
+
+<!-- <ion-content>
+
+  <ion-list *ngFor="let aLine of welcomeText; let i=index;">
+         
+       {{aLine}}
+
+  </ion-list>
+ 
+</ion-content> -->

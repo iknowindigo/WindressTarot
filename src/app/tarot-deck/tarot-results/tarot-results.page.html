@@ -1,0 +1,69 @@
+<ion-header>
+  <ion-toolbar color="indigold" >
+    <ion-buttons slot="primary">
+      <!-- <ion-back-button defaultHref="tarot-deck"></ion-back-button> -->
+      <ion-button (click)="goHome()">
+        <ion-icon name="home-outline"></ion-icon>
+        Home
+      </ion-button>
+    </ion-buttons>
+    <ion-title>{{readingName}} Results</ion-title> 
+  </ion-toolbar>
+</ion-header> 
+
+<ion-content >
+  <ng-template [ngIf]= "selectedSetOfCards.length > 0" >
+<!-- I'm going to make an area for user to enter comment - then a button to submit (which will save to db) -->
+    <!-- but only show this when user is logged in -->
+    <ng-template [ngIf]="userLoggedIn == true">  
+    
+          <!-- <ion-input class="subject_input" placeholder="Subject for Reading:"  
+            type="text" [(ngModel)]="subject">FF
+          </ion-input>
+        
+          <ion-textarea class="comment_input"
+          type="submit" 
+          [disabled]="throwIsSaved == true"
+          [(ngModel)]="comment" 
+          inputmode="text" name="comment" 
+          placeholder="Thoughts or reaction" (keyup)="adjust()">
+        </ion-textarea> -->
+      
+
+      <ion-item class="button_holder">     
+        <ion-button [disabled]="userLoggedIn != true || throwIsSaved == true" type="submit"  color="indigold"  (click)="sendServer()">Save to diary</ion-button>  
+        <!-- <ion-button [disabled]="userLoggedIn != true" (click)="emailReading()" color="indigold"  >Email Reading</ion-button> -->
+        <!-- <a [href]="mailto('example@mail.com', 'newSubject')"></a> -->
+        <ion-button color="indigold" (click)="RepeatThrow()"> New Reading </ion-button>
+        <ion-button (click)="goHome()" color="indigold"  >Home</ion-button>
+       
+      </ion-item>
+    </ng-template>
+
+    <!-- all new way of displaying the data - 7/10 -->
+
+    <div *ngIf="throw != undefined && throw != null">
+      <!-- <ion-virtual-scroll scrollY="true"> -->
+      <ion-list  lines="none"
+          class="accordian-list"
+            details="false">
+        <ion-item tappable [ngClass]= "section-active">         
+          <ion-label class="results-heading">
+            <h2 class="result-subject">{{ throw.subject }}</h2>
+            <h2 class="result-subject">{{ throw.comment}} </h2>
+            <!-- <h3>{{ throw.displayDateTime }} </h3> -->
+            <p class="results-type">{{ throw.typeThrow}}   </p>
+            <app-tablehelp *ngIf="throw.open">
+              [tarotThrow]='throw' [data]='throw'
+            </app-tablehelp>
+          </ion-label>
+        </ion-item>
+      </ion-list>
+    <!-- </ion-virtual-scroll> -->
+    </div>
+    
+    
+</ng-template>
+
+</ion-content>
+ 

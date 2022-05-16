@@ -1,0 +1,48 @@
+.ripple-parent {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .MyFolderlist {
+    padding-top: 120px;
+    height: 300px;
+    top: 300px;
+  }
+
+  // ?? I couldn't figure out how to start below the caption bar - so it starts above that - but I hide them
+  .filler-item {
+    height: 30px;
+    visibility: hidden;
+    // top: 300px;
+  }
+  * {
+    background-color: rgb(8, 20, 94) !important;
+  }
+
+  .MenuItem {
+      background-color: rgb(8, 20, 94);
+      color:  rgb(204, 204, 255);
+      cursor: pointer;
+  } 
+
+  .MenuDummy {
+    background-color: rgb(8, 20, 94);
+      color:  rgb(204, 204, 255);
+      cursor: s-resize;
+  }
+
+  .SelectedMenuItem {
+    background-color: rgb(8, 20, 94);
+    color:  rgb(237, 206, 39);
+    cursor: pointer;
+} 
+// .fab {
+//   width: 100px !important;
+//   height: 100px !important;
+//   }
+// .fab[mini] {
+//   margin: 8px;
+//   width: 80px;
+//   height: 80px;
+//   line-height: 80px;
+// }

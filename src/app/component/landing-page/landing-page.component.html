@@ -1,0 +1,49 @@
+<ion-header >
+
+  <ion-toolbar color="indigold"  >
+    <ion-buttons slot="primary">
+      <ion-button (click)="close()">
+        <ion-icon name="close-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title class="ion-text-center">The Windress Tarot</ion-title>
+    <ion-title size="small" class="ion-text-center">A Visual Guide to Self-Exploration</ion-title>
+  </ion-toolbar>
+</ion-header> 
+
+<ion-content>
+  <div class="landing-area">
+
+ 
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <img class="cardMed" src={{img1url}} />
+      </ion-col>
+      <ion-col>
+        <ion-grid>
+          <ion-row></ion-row>
+          <!-- <ion-row>
+            <ion-col class="ion-text-center">
+              Continue as our Guest
+              <ion-button expand="block"  (click)="close()">Continue</ion-button>
+            </ion-col>
+          </ion-row> -->
+          <ion-row>
+            <ion-col class="ion-text-center">
+              Login for full access
+              <ion-button expand="block" (click)="login()">Login</ion-button>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col class="ion-text-center">
+              Register for full access
+              <ion-button expand="block" (click)="register()">Register</ion-button>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</div>
+</ion-content>

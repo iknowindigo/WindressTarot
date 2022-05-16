@@ -1,0 +1,102 @@
+$background-color: #aeb5ce;
+
+ion-card {
+    background-color: #fff;
+    width: 100%;
+    margin: 0;
+    margin-bottom: 25px;
+    position: relative;
+    top: -30px;
+}
+
+ion-card:last-of-type {
+    margin-bottom: 0 !important;
+}
+
+ion-item {
+    background-color: #fff;
+}
+
+
+.md-grid-fixed [class*="mbsc-col"] {
+    padding-top: .5em;
+    padding-bottom: .5em;
+    background: #cfe0f3;
+    background-clip: padding-box;
+    border: 1px solid transparent;
+    color: #454b50;
+}
+
+// .md-grid-fixed .mbsc-row {
+//     margin: 1em 0;
+// }
+
+ion-grid {
+    border: 1px solid  #edce27; // #aeb7ca;
+  }
+
+.multiline
+{
+//   padding:20px;
+ // white-space: normal;
+ white-space: pre-wrap; // g.s. 4-21-22
+//   overflow-wrap: break-word;
+  overflow-wrap: break-word; 
+  word-wrap: break-word;
+  display: block;
+  width: auto;
+  font-size: small;
+}
+
+  // page.scss
+
+:host {
+    ion-item {
+        border-bottom: 1px dotted var(--ion-color-medium);
+    }
+}
+
+
+.cardBig {
+    width: 100%; //1180px; 
+    height: 100%; //1180px;
+}
+
+.cardMed {
+    width: 120px; 
+    height: 120px;
+}
+
+.cardSmall {
+    width: 90px; 
+    height: 90px
+}
+
+.list {
+    padding-top: 0px;
+    padding-bottom: 0px;
+}
+
+// html * {
+//     background: rgba(255, 0, 0, .1);
+//     box-shadow: 0 0 0 1px red;
+//   }
+
+
+.head-subject {
+    color: white;
+    background: rgb(6, 15, 71);
+    margin: 0px !important;
+}
+  
+.head-date {
+    color: white;
+    background: rgb(6, 15, 71) ;
+    margin: 0px !important;
+}
+
+.head-type {
+    color: white ;
+    background: rgb(6, 15, 71) ;
+    margin: 0px !important;
+}

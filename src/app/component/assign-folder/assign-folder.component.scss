@@ -1,0 +1,17 @@
+ .mySelect {
+     background: rgb(8, 20, 94);
+     padding: 6px;
+     border: 1px;
+     max-width: 100% !important;
+ }
+
+ .button_example{
+    float: right;
+    // background-color: green($color: #000000);
+    border: 1px solid whitesmoke ;
+    border-radius: 6px;
+}
+
+.button_example:hover {
+    border: 2px solid white;
+}

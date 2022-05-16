@@ -1,0 +1,157 @@
+<div *ngIf="thisMessage!= null" #content>
+
+  <!-- <ion-buttons slot="end">
+    <div >
+    <ion-button class="ion-float-end">
+      <ion-icon name="thumbs-up-outline"></ion-icon>
+      <ion-badge>{{numLikes}}</ion-badge>
+    </ion-button>
+  </div>
+  </ion-buttons> -->
+  
+  <ng-template [ngIf]="typeChat == 0 ">
+    <ion-card class="card-post">
+      <ion-item>
+        <ion-avatar slot="start">
+          <img [src] = "thisMessage.userProfileURL">
+        </ion-avatar>
+        <ion-label>
+          {{ thisMessage.userName}}  
+        </ion-label>
+        <div *ngIf="thisMessage.iOwnThis == true">
+          <ion-button  fill="solid" size="default" color="primary" (click)="onItemMenu(0, $event, thisMessage)">
+            <ion-icon name="menu-outline"></ion-icon>
+          </ion-button>
+        </div>
+      </ion-item>
+      
+      <ion-card-subtitle>
+        {{ thisMessage.displayDate }}
+      </ion-card-subtitle>
+ 
+      <!-- <ion-card-content> -->
+        {{ thisMessage.messageText}}
+      <!-- </ion-card-content> -->
+    </ion-card>
+    <!-- (keyup.enter)="commentOnPost()" -->
+    <ion-input [(ngModel)]="postComment"  
+         (keyup.enter)="commentOnPost()"
+          placeholder="Make a comment..."          
+          >
+      </ion-input>
+    <!-- comments -->
+    <ion-list *ngFor="let cmd of thisMessage.postComments; let i=index;" lines="none"
+    class="accordian-list"
+    insert="true"
+    lines="full"
+      details="false">       
+      <a name={{cmd.scrollTag}}></a>      
+      <ion-card class="card-comment">
+        <ion-item>
+          <ion-avatar slot="start">
+            <img [src] = "cmd.userProfileURL">
+          </ion-avatar>
+          <ion-label>
+            {{ cmd.userName}}  
+          </ion-label>
+          <div *ngIf="cmd.iOwnThis == true">
+            <ion-button  fill="solid" size="default" color="primary" (click)="onItemMenu(1, $event, cmd)">
+              <ion-icon name="menu-outline"></ion-icon>
+            </ion-button>
+          </div>
+        </ion-item>
+        
+        <ion-card-subtitle>
+          {{ cmd.displayDate }}
+        </ion-card-subtitle>
+   
+        <ion-card-content>
+          {{ cmd.messageText}}
+        </ion-card-content>
+         </ion-card>
+          <!-- <ion-input [(ngModel)]="postComment"  
+          class="in-comment"
+          (keyup.enter)="commentOnPost()"
+          placeholder="Make a comment..."          
+          > -->
+      <!-- </ion-input>  -->
+    </ion-list>
+  </ng-template>
+
+  <ng-template [ngIf]="typeChat == 1 ">
+    <ion-card >
+      <ion-item >
+        <ion-avatar slot="start">
+          <img [src] = "thisMessage.userProfileURL">
+        </ion-avatar>
+        <ion-label>
+          {{ thisMessage.userName}}  
+        </ion-label>
+      </ion-item>
+      <ion-card-subtitle>
+        {{ thisMessage.displayDate }}
+      </ion-card-subtitle>
+      <ion-card-content>
+        {{ thisMessage.messageText}}
+        <div class="ion-text-end"  *ngIf="thisMessage.iOwnThis == true">
+          <ion-button  fill="solid" size="default" color="primary" (click)="onItemMenu(0, $event, thisMessage)">
+            <ion-icon name="menu-outline"></ion-icon>
+          </ion-button>
+        </div>
+        <app-tablehelp >
+          [tarotThrow]='throw' [throwID]='throw.throwID' 
+        </app-tablehelp>
+      </ion-card-content>
+    </ion-card>
+    <!-- (keyup.enter)="commentOnPost()" -->
+      <ion-input [(ngModel)]="postComment"  
+      (keyup.enter)="commentOnPost()"
+      placeholder="Make a comment..."          
+      >
+      </ion-input>
+    <!-- comments -->
+      <ion-list *ngFor="let cmd of thisMessage.postComments; let i=index;" lines="none"
+        class="accordian-list"
+        insert="true"
+        lines="full"
+          details="false">     
+          <a name={{cmd.scrollTag}}></a>
+        <ion-card class="card-comment">
+        
+          <ion-item>
+            <ion-avatar slot="start">
+              <img [src] = "cmd.userProfileURL">
+            </ion-avatar>
+            <ion-label>
+              {{ cmd.userName}}  
+            </ion-label>
+            <div *ngIf="cmd.iOwnThis == true">
+              <ion-button  fill="solid" size="default" color="primary" (click)="onItemMenu(1, $event, cmd)">
+                <ion-icon name="menu-outline"></ion-icon>
+              </ion-button>
+            </div>
+          </ion-item>
+          
+          <ion-card-subtitle>
+            {{ cmd.displayDate }}
+          </ion-card-subtitle>
+      
+          <ion-card-content>
+            {{ cmd.messageText}}
+          </ion-card-content>
+        </ion-card>        
+        <!-- <ion-input [(ngModel)]="postComment"  
+        class="in-comment"
+        (keyup.enter)="commentOnPost()"
+        placeholder="Make a comment..."          
+        > -->
+      <!-- </ion-input> -->
+    </ion-list>
+  </ng-template>
+
+  <!-- <ng-template [ngIf]="showCommentComponent">
+    <app-reply-comment id="myComment"></app-reply-comment>
+  </ng-template> -->
+  
+
+</div>

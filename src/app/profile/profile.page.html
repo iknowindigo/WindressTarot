@@ -1,0 +1,131 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title class="ion-text-center" >Edit Profile:</ion-title>
+    
+    <ion-buttons slot="primary">
+      <ion-button (click)="goHome()"> 
+        <ion-icon name="home-outline"></ion-icon>
+      </ion-button >
+      <ion-label class="loginName">
+        {{Email}} 
+      </ion-label>
+      <ion-menu-button ></ion-menu-button>
+   
+    </ion-buttons>
+  </ion-toolbar>
+
+</ion-header>
+
+
+<ion-content>
+
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <ion-item>
+          <ion-label >First Name </ion-label>
+          <ion-input required type="text" 
+          (ionChange)="handleTextChange()"
+          [(ngModel)]="firstName"></ion-input>
+        </ion-item>
+      </ion-col>
+      <ion-col>
+        <ion-item>
+          <ion-label >Last Name </ion-label>
+          <ion-input required type="text" 
+          (ionChange)="handleTextChange()"
+          [(ngModel)]="lastName" ></ion-input>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <ion-item>
+          <ion-label>Nickname</ion-label>
+          <ion-input required type="text" 
+          (ionChange)="handleTextChange()"
+          [(ngModel)]="nickName"></ion-input>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+    <!-- <ion-row>
+      <ion-col>
+        <ion-item>
+          <ion-label>Email address:</ion-label>
+          <ion-input required type="text"
+          (ionChange)="handleTextChange()"
+          [(ngModel)]="Email" >
+          </ion-input>
+        </ion-item>
+      </ion-col>
+    </ion-row> -->
+    <ion-row>
+      <ion-col>
+        <ion-item>
+          <ion-label>Interests - Hobbies</ion-label>
+          <ion-textarea value={{interests}} rows="2" [(ngModel)]="interests"
+          (ionChange)="handleTextChange()"
+            >
+
+          </ion-textarea>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <ion-item>
+          <ion-label>Location: City</ion-label>
+          
+          <ion-input [(ngModel)]="city"      (ionChange)="handleTextChange()">
+
+          </ion-input>
+        </ion-item>
+      </ion-col>
+      <ion-col>
+        <ion-item>
+          <ion-label>State</ion-label>
+          <ion-input [(ngModel)]="state"      (ionChange)="handleTextChange()"></ion-input>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <ion-item>
+          <ion-label>Birthday</ion-label>
+          <ion-input [(ngModel)]="birthday" type="date"      (ionChange)="handleTextChange()"></ion-input>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+   
+   
+    <ion-row>
+      <ion-col>
+        <!-- <ion-img [src]="convertedImageUrl" class="avatar"></ion-img> -->
+        
+        <img [src]="userProfileURL" class="avatar">
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <ion-button expand="full" 
+          (click)="updateProfileData()"
+          [disabled]="!updateEnabled"
+          >Update Profile</ion-button>
+      </ion-col>
+    </ion-row>
+    <!-- <ion-row>
+      <ion-col>
+       <ion-button expand="full" (click)="changePW()">Change Email/Password</ion-button>
+      </ion-col>
+    </ion-row> -->
+    <ion-row>
+      <ion-col size="4"></ion-col>
+      <ion-col size="4">
+        <label for="myfile">Select a (new) Profile Picture:</label>
+        <input type="file" id="myfile" name="myfile" (change)="profileFileUpload($event)">
+      </ion-col>
+    </ion-row>
+    <!-- <ion-col>{{ profileFileName }}</ion-col> -->
+  </ion-grid>
+
+</ion-content>

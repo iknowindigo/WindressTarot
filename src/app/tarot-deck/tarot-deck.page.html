@@ -1,0 +1,282 @@
+
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="primary">
+      <ion-button (click)="goHome()"> 
+        <ion-icon name="home-outline"></ion-icon>
+      </ion-button >
+      <ion-label class="loginName">
+        {{displayName}} 
+      </ion-label>
+      <!-- <ion-button *ngIf="loggedIn== true" disabled> --> 
+        
+      <!-- </ion-button> -->
+      <!-- <ion-button *ngIf="loggedIn == false" disabled> -->
+        <!-- Welcome Guest -->
+      <!-- </ion-button> -->
+      <ion-menu-button ></ion-menu-button>
+    </ion-buttons>
+    <ion-title class="ion-text-center" >Windress Tarot</ion-title>
+    
+
+  </ion-toolbar>
+  <ion-toolbar color="secondary">
+    <ion-buttons slot="primary">
+
+      <!-- <ion-button (click)="doExplore()">
+        <ion-icon name="telescope-outline"></ion-icon>
+        &nbsp;Explore the Cards
+      </ion-button>
+      <ion-button (click)="doGame()">
+        <ion-icon name="extension-puzzle-outline"></ion-icon>
+        &nbsp;Play a Game
+      </ion-button> -->
+     
+        <ion-button (click)="onIntro()">
+          <!-- <ion-icon name="happy-outline"></ion-icon> -->
+          <ion-icon name="color-wand-outline"></ion-icon>
+          &nbsp;Introduction
+        </ion-button>
+
+        <div *ngIf="numFriendRequests > 0">
+          <ion-button (click)="showFriendRequests($event)" item-end>
+            <ion-icon name="people-outline"></ion-icon>
+            <ion-badge>{{numFriendRequests}}</ion-badge>
+          </ion-button>
+        </div>
+
+        <div *ngIf="numBadgeComments > 0"> 
+          <ion-button (click)="commentsMade($event)"  item-end>
+            <ion-icon name="reader-outline"></ion-icon>
+            <ion-badge>{{numBadgeComments}}</ion-badge>
+          </ion-button>
+        </div>
+
+      <!-- <ion-button (click)="onAbout()">
+        <ion-icon name="bulb-outline"></ion-icon>
+        &nbsp;About
+      </ion-button> -->
+      
+      <div *ngIf="userIsAdmin == true && loggedIn == true" >
+        <ion-button (click)="doAdminStuff()" >
+          <ion-icon name="build-outline"></ion-icon>
+        </ion-button>
+      </div>
+      <div *ngIf="iAmMe == true">
+        <ion-button (click)="goDashBoard()"  item-end>
+          <ion-icon name="analytics-outline"></ion-icon>
+          &nbsp;Dashboard
+        </ion-button>
+      </div>
+      
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  
+ 
+  <ion-grid main (clickoutside)="turnOffAnimation()">
+    <ion-row>
+      <ion-col width-10>    </ion-col>
+      <ion-col width-10>    
+        <ion-img [src]="pathToOneCard" class="cardSelect"  (click)="dealOneCard()"></ion-img>
+      </ion-col>
+      <ion-col width-10>    
+        <ion-img [src]="pathToThreeCards" class="cardSelect"  (click)="dealThreeCards()"></ion-img>
+      </ion-col>
+      <ion-col width-10>    
+        <ion-img [src]="pathToPyramid" class="cardSelect" (click)="dealPyramidThrow()" ></ion-img>
+      </ion-col>
+      <ion-col width-10>    </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col width-10>    </ion-col>
+      <ion-col width-10>Single Card Reading    </ion-col>
+      <ion-col width-10>Three Card Reading    </ion-col>
+      <ion-col width-10>Pyramid Reading    </ion-col>
+      <ion-col width-10>    </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col width-10>    </ion-col>
+      <ion-col width-10>    
+        <ion-img [src]="nineRayReading" class="cardSelect" (click)="NineRayReading()" ></ion-img>
+      </ion-col>
+      <ion-col width-10>    </ion-col>
+      <ion-col width-10>    
+        <ion-img [src]="pathToExplore" class="cardSelect" (click)="doExplore()" ></ion-img>    
+      </ion-col>
+      <ion-col width-10>    </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col width-10>    </ion-col>
+      <ion-col width-10>Nine Ray Reading - deeper insights    </ion-col>
+      <ion-col width-10>    </ion-col>
+      <ion-col width-10>Explore the Cards    </ion-col>
+      <ion-col width-10>    </ion-col>
+    </ion-row>
+
+    <ion-row></ion-row>
+    <div class="flyingCard" >
+      <ion-img [src]="thisRandomCard.imageUrl" class="oneFlyingCard" ></ion-img>
+      <ion-img [src]="thisRandomCard2.imageUrl" class="oneFlyingCardEnd" ></ion-img>
+    </div>
+
+    <ion-row >
+      <ion-col width-10>    </ion-col>
+      <ion-col width-10 >    
+        <div *ngIf="loggedIn == true">
+          <ion-img [src]="pathToDiary" 
+          class="cardSelect"  (click)="onDiary()" ></ion-img>
+        </div>
+      </ion-col>
+      
+      <ion-col width-10 >    
+        <div *ngIf="loggedIn == true">
+          
+          <ion-img   [src]="pathToMemory" 
+          class="cardSelect"  (click)="doGame()" ></ion-img>
+        </div>
+      </ion-col>
+      <ion-col width-10 >    
+        <div *ngIf="loggedIn == true">
+          <ion-img [src]="pathToShare" 
+          class="cardSelect"  (click)="onShare()" ></ion-img>
+        </div>
+      </ion-col>
+      <ion-col width-10>    </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col width-10>    </ion-col>
+     
+        <ion-col width-10> Diary - saved Readings    </ion-col>
+        <ion-col  width-10>Play a Memory Game    </ion-col>
+        <ion-col  width-10>Share Readings with Friends    </ion-col>
+        <div *ngIf="loggedIn == true">
+      </div>
+      
+      <ion-col width-10>    </ion-col>
+    </ion-row>
+
+<!-- 
+    <ion-row>
+      <ion-col width-10>    </ion-col>
+      <ion-col width-10>
+        <ion-img [src]="pathToOneCard" class="cardSelect"  (click)="dealOneCard()"></ion-img>
+      </ion-col>
+      <ion-col width-10>    </ion-col>
+      <ion-col width-10>    
+        <ion-img [src]="pathToPyramid" class="cardSelect" (click)="dealPyramidThrow()" ></ion-img>
+      </ion-col>
+      <ion-col width-10>    </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col width-10>    </ion-col>
+        <ion-col width-10>    
+            Single Card Reading
+        </ion-col>
+        <ion-col width-10>    </ion-col>
+        <ion-col width-10>   
+          Pyramid Reading
+        </ion-col> 
+        <ion-col width-10>    </ion-col>
+    </ion-row>
+    <ion-row></ion-row>
+    <ion-row>
+      <ion-col width-10>    </ion-col>
+      <ion-col width-10>    
+        <ion-img [src]="pathToThreeCards" class="cardSelect"  (click)="dealThreeCards()"></ion-img>
+      </ion-col>
+      <ion-col width-10>    </ion-col>
+      <ion-col width-10>    
+        <ion-img [src]="nineRayReading" class="cardSelect" (click)="NineRayReading()" ></ion-img>
+      </ion-col>     
+      <ion-col width-10>    </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col width-10>    </ion-col>
+      <ion-col width-10 >    
+        Three Card Reading
+      </ion-col>
+      <ion-col width-10>    </ion-col>
+      <ion-col width-10>    
+        Nine Ray Reading - deeper insights
+      </ion-col>
+      <ion-col width-10>    </ion-col>
+    </ion-row>
+    <ion-row></ion-row>
+    <div class="flyingCard" >
+      <ion-img [src]="thisRandomCard.imageUrl" class="oneFlyingCard" ></ion-img>
+      <ion-img [src]="thisRandomCard2.imageUrl" class="oneFlyingCardEnd" ></ion-img>
+      
+    </div>
+    <ion-row>
+      
+      <ion-col width-10>    </ion-col>
+      <ion-col width-10 >     
+        <div *ngIf="loggedIn == true">
+   
+          <ion-img [src]="pathToDiary" 
+          class="cardSelect"  (click)="onDiary()" ></ion-img>
+        </div>
+        </ion-col>
+        <ion-col width-10>    </ion-col>
+        <ion-col width-10>   
+          <div *ngIf="loggedIn == true">
+            <ion-img [src]="pathToShare" 
+            class="cardSelect"  (click)="onShare()" ></ion-img>
+          </div>
+          </ion-col>
+        
+          <ion-col width-10>    
+        <ion-col width-10></ion-col>  
+        </ion-col>
+      </ion-row> 
+ 
+    <ion-row>
+     
+      <ion-col width-10>    </ion-col>
+      <ion-col width-10 class="royal">      
+        <div *ngIf="loggedIn == true">
+
+          Diary - Browse saved readings
+        </div>
+      </ion-col>
+     
+      <ion-col width-10>    </ion-col>
+      <ion-col width-10>    
+        <div *ngIf="loggedIn == true">
+
+          Share Readings with Friends
+        </div>
+      </ion-col>
+      <ion-col width-10>    </ion-col>
+    </ion-row> -->
+  
+    <!-- <ion-row>
+      <ion-item *ngFor="let quote of spiritualQuotes" >
+        <ion-card color="light">
+          <ion-card-header >Quote for today</ion-card-header>
+          <ion-card-content color="secondary">
+            {{quote}} 
+          </ion-card-content>
+        </ion-card>
+      </ion-item> 
+    </ion-row> -->
+  </ion-grid>
+
+
+  
+
+</ion-content>
+<ion-footer>
+  <ion-toolbar> 
+    <small>
+    <!-- <ion-title class="ion-text-center">Footer</ion-title> -->
+    <h5 class="ion-text-center" >All images and text - Copyright &#169; 2022 Enlightened Forest Publishing.  All Rights Reserved
+
+    </h5>
+  </small>
+  </ion-toolbar>
+</ion-footer>

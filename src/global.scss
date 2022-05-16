@@ -1,0 +1,443 @@
+/*
+ * App Global CSS
+ * ----------------------------------------------------------------------------
+ * Put style rules here that you want to apply globally. These styles are for
+ * the entire app and not just one component. Additionally, this file can be
+ * used as an entry point to import other CSS/Sass files to be included in the
+ * output CSS.
+ * For more information on global stylesheets, visit the documentation:
+ * https://ionicframework.com/docs/layout/global-stylesheets
+ */
+
+/* Core CSS required for Ionic components to work properly */
+@import "~@ionic/angular/css/core.css";
+
+/* Basic CSS for apps built with Ionic */
+@import "~@ionic/angular/css/normalize.css";
+@import "~@ionic/angular/css/structure.css";
+@import "~@ionic/angular/css/typography.css";
+@import '~@ionic/angular/css/display.css';
+
+/* Optional CSS utils that can be commented out */
+@import "~@ionic/angular/css/padding.css";
+@import "~@ionic/angular/css/float-elements.css";
+@import "~@ionic/angular/css/text-alignment.css";
+@import "~@ionic/angular/css/text-transformation.css";
+@import "~@ionic/angular/css/flex-utils.css";
+
+// @import '../theme/fonts/fonts.scss';
+
+// $modal-inset-height-large: 100%;
+// $modal-inset-height-small: $modal-inset-height-large;
+// $modal-inset-width: 100%;
+
+.split-pane-visible >.split-pane-side {
+  min-width: 160px!important;
+  // min-width: 100px!important;
+  max-width: 9000px!important;  // never interested in space on other side of diary
+}
+
+
+
+
+ion-card-title {
+  color:  #edce27;; // set the color you want
+  }
+  ion-card-subtitle {
+    color:  #edce27;; // set the color you want
+    }
+  
+// .IndigloCss {
+//   color: #edce27 ;
+// }
+// .alert-head {
+//   color: #edce27 ;
+// }
+// .alert-wrapper {
+//   color: #edce27 ;
+// }
+// .alert-title {
+//   color: #edce27 ;
+// }
+/* used this to fit image into an alert - used while picking an image */
+.card-alert {
+    // width: 150px;
+    // height: 250px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 70%;
+    display: block;
+};
+
+.scaledAlert {
+    // transform: scale(1.5);
+    height: auto;
+    contain: content;
+  //  white-space: normal;
+  white-space: pre-wrap;  // g.s. 4-21-22
+    max-width: unset !important;
+    width: 110% !important;
+    // font-size: 30px;
+    // flex: 0 0 auto;
+//   font-weight: 100;
+}
+
+
+//   ion-backdrop {
+//     visibility: hidden;
+//     max-width: 600px;
+//     left: calc(50% - (600px/2));
+//   }
+// }
+
+modal-wrapper {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+  }
+
+.my-modal {
+  height:  100%!important;
+  width:  100%!important;
+  margin: 0;
+  
+}
+
+
+ion-modal.my-modal {
+  @media (min-width: 310px) {
+    // max-width: 300px;
+    // left: calc(50% - (300px/2));
+    position: relative; // 8-13 changed from absolute  //absolute;
+    
+    width: auto; //300px;
+    left:  0px; //calc(50% - (300px/2));
+    height: auto;  //220px;
+    top:  20px; //calc(50% - (300px/2));
+    margin-left: 0px;
+    ion-backdrop {
+      visibility: hidden;
+      max-width: auto; //300px;
+      left: 0px;  //calc(50% - (300px/2));
+    }
+    display: flex;
+    // justify-content: center;
+    // align-items: center;
+    box-shadow: none;
+  }
+
+  @media (min-width: 610px)  {    // and (min-height: 300px)
+    position: absolute;
+      width: auto; //600px;
+      left:  0px; //calc(50% - (600px/2));
+      height: auto; //220px;
+      top:  20px; //calc(50% - (600px/2));
+      // bottom: 700px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    ion-backdrop {
+      visibility: hidden;
+      max-width: 600px;
+      left: calc(50% - (600px/2));
+    }
+  }
+
+  .modal-wrapper {
+    position:  absolute;
+    overflow: visible;  //hidden;
+  
+    border-radius: 20px;
+    width:  600px;
+    height: 220px;  //22vh;
+    
+    left: calc(50% - (600px/2));
+    
+    // top: auto;
+    // margin: auto;
+    border: 1px;  //0;
+    // box-shadow: 0 16px 20px rgba(0,0,0,.4);
+    background-color:  rgb(8, 20, 94);  // #fafafa;
+  }
+}
+
+
+// try to format the before a reading modal dialog
+.prepareModal .modal-wrapper {
+  position: absolute;
+  width: 240px;
+  left: calc(50% - (240px/2));
+  height: 420px;
+  justify-content: center;
+  align-items: center;
+}
+// // css for the prepare before deal dialog
+// .prepareModal {
+//   // background: rgba(0, 0, 0, 0.5) !important;
+//   ion-backdrop {
+//     visibility: visible !important;
+//   }
+//   position: absolute;  //relative;
+//   width: 240px;   //50vw;
+//   height: 510px;  //60vw;
+//   top: 60px; //130px;
+//   // bottom: -200px;
+//   left: 300px;
+//   // margin-bottom: -300px;
+//   // padding: 20% 10% !important;
+//   // border-radius: 20px;
+//   // height: 60%!important;
+//   // min-height: 50%;
+//   // width: 30%!important;
+//   // background: transparent !important;
+// }
+
+@media not all and (min-height: 600px) and (min-width: 768px) {
+    ion-modal ion-backdrop {
+      visibility: hidden;
+    }
+  }
+  
+  // NOTE - this is where you change width for small screens!
+  @media only screen and (min-height: 0px) and (min-width: 0px) {
+    .modal-wrapper {
+      position: absolute;
+    //   top: 0;
+    //   left: 0;
+    //   width: 150%;
+    //   height: 100%;
+    width: 310px;
+    left: calc(50% - (310px/2));
+    height: 510px;
+    top: calc(50% - (510px/2));
+      display: flex;
+    justify-content: center;
+    align-items: center;
+    }
+  }
+
+  @media only screen and  (min-width: 400px) {
+    .modal-wrapper {
+      position: absolute;
+      width: 400px;
+      left: calc(50% - (400px/2));
+      height: 600px;
+      top: calc(50% - (600px/2));
+      // bottom: 700px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+
+  @media only screen and  (min-width: 610px) {
+    .modal-wrapper {
+      position: absolute;
+      width: 600px;
+      left: calc(50% - (600px/2));
+      height: 600px;
+      top: calc(50% - (600px/2));
+      // bottom: 700px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+
+  .modal-fullscreen {
+    .modal-wrapper {
+        position: absolute;
+        top: 0;
+        left: 0;
+        display: block;
+        width: 100%;
+        height: 100%;
+    }
+}
+
+// ion-content {
+//   --background-color:#eee;
+//   }
+
+:root {
+  /* These examples use the same color: sienna. */
+  --ion-text-color:             #a0522d;
+  --ion-text-color-rgb:         256,256,256;  //160, 82, 45;
+  --ion-background-color: rgb(8, 20, 94);
+  // color: white  !important;
+  /* These examples use the same color: lightsteelblue. */
+  // --ion-background-color:       #b0c4de;
+  // --ion-background-color-rgb:   176, 196, 222;
+  // color: white;
+}
+
+// html { background-color: black; }
+
+ion-content {
+  --ion-background-color: rgb(8, 20, 94) !important;
+  --ion-color: white;
+  color: white;
+}
+ 
+* {
+  color: white;
+  // background: rgb(6, 15, 71) ;
+  // background: rgb(8, 20, 94);
+}
+
+$colors: (
+  primary:    #58B43F,
+  secondary:  #fff,
+  bgContent: white
+);
+
+// ion-picker for folder picking
+.folder-picker {
+  position: absolute;
+  // width: 50px;
+  // height: 50px;
+  transform: translate(-50%, -50%);
+  top: 20%;
+  left: 50%;
+
+  --background: rgba(25, 0, 255);
+  --ion-text-color: white;
+  --border-width: 0.55px 0 0;
+  .picker-toolbar {
+    color: indigo;
+  }
+  .picker-opt-selected {
+    color: rgb(0, 256, 0);
+  }
+}
+
+.foldpick-done {
+  font-weight: 600 !important;
+  color: white !important;
+} 
+
+.cardSearchModal {
+  // height: 70%!important;
+  // transform: translateY(100%);
+  // width: 240px;
+  // left: calc(50% - (240px/2));
+  // height: 220px;
+  justify-content: center;
+  align-items: center;
+  // width: 80%;
+  // top: 90px;
+  // height: 40%;
+  // height: 20%;
+  // top: 80%;
+  position: absolute; 
+  // display: block;  
+}
+
+.landingModal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 600px;
+  max-width: 100%;
+  height: 580px;
+  max-height: 100%;
+  padding-top: 100px;
+  .modal-wrapper {
+    width: 600px;
+    left: calc(50% - (600px/2));
+    height: 500px;
+    top: calc(50% - (500px/2));
+  }
+}
+
+.my-custom-popover{
+  text-align: right;
+  float: right;
+}
+
+.comment-popover {
+  ion-backdrop {
+    background-color: white;
+  }
+  .popover-wrapper {
+    .popover-arrow::after {
+      background-color: rgb(40, 53, 134);
+    }
+  }
+  .popover-arrow {
+    background-color: rgb(40, 53, 134);
+  }
+  .popover-content {
+    width: 66vw;
+    height: 27vw;
+    border: 3px dotted red($color: #9e2222); 
+    background-color: rgb(8, 20, 94);
+    // text-align: center;
+    // .app-popover {
+    //   width: 66vw;
+    //   height: 22vw;
+    //   border: 3px dotted red($color: #000000);
+    // }
+  }
+}
+
+.menu-popover {
+  ion-backdrop {
+    background-color: white;
+  }
+  .popover-wrapper {
+    .popover-arrow::after {
+      background-color: rgb(40, 53, 134);
+    }
+  }
+  .popover-arrow {
+    background-color: rgb(40, 53, 134);
+  }
+  .popover-content {
+    width: 33vw;
+    height: 39vw;
+    border: 3px dotted red($color: #9e2222); 
+    background-color: rgb(8, 20, 94);
+  }
+}
+
+.short-menu-popover {
+  ion-backdrop {
+    background-color: white;
+  }
+  .popover-wrapper {
+    .popover-arrow::after {
+      background-color: rgb(40, 53, 134);
+    }
+  }
+  .popover-arrow {
+    background-color: rgb(40, 53, 134);
+  }
+  .popover-content {
+    width: 33vw;
+    height: 9vw;
+    border: 3px dotted red($color: #9e2222); 
+    background-color: rgb(8, 20, 94);
+  }
+}
+
+.narrow-menu-popover {
+  ion-backdrop {
+    background-color: white;
+  }
+  .popover-wrapper {
+    .popover-arrow::after {
+      background-color: rgb(40, 53, 134);
+    }
+  }
+  .popover-arrow {
+    background-color: rgb(40, 53, 134);
+  }
+  .popover-content {
+    width: 30vw;
+    height: 27vw;
+    border: 3px dotted red($color: #9e2222); 
+    background-color: rgb(8, 20, 94);
+  }
+}

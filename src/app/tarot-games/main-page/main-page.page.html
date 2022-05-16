@@ -1,0 +1,65 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title class="ion-text-center" >Windress Card Games </ion-title>
+    
+    <ion-buttons slot="primary">
+      <ion-button (click)="goHome()"> 
+        <ion-icon name="home-outline"></ion-icon>
+      </ion-button >
+      <ion-label class="loginName">
+        {{displayName}} 
+      </ion-label>
+     
+      <ion-menu-button ></ion-menu-button>
+   
+    </ion-buttons>
+  </ion-toolbar>
+  <ion-toolbar color="secondary">
+    
+   
+    <ion-buttons slot="primary">
+      <button onclick="location.href='https://windresstarot.web.app/'" type="button">
+        <ion-icon name="grid-outline"></ion-icon>
+        Do a Reading (main app)</button>
+      <!-- <ion-button (click)="goReadings()" > -->
+        <!-- <ion-button >
+          <a [routerLink]="['https://windresstarot.web.app/']" routerLinkActive="router-link-active"></a>
+        <ion-icon name="grid-outline"></ion-icon>
+        &nbsp;Do a Reading
+      </ion-button> -->
+      <ion-button (click)="goExplore()" tooltip="Go to Library">
+        <ion-icon name="flashlight-outline"></ion-icon>
+        &nbsp;Explore Cards
+      </ion-button>
+      <ion-button (click)="goMemory()" tooltip="Go to Library">
+        <ion-icon name="ribbon-outline"></ion-icon>
+        &nbsp;Memory
+      </ion-button>
+      
+      </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+<h3>One of my main memories of Kathy is that she loved to play games.</h3>
+<h4>To honor that memory, I plan to make a few games, using her tarot cards</h4>
+<h4>I believe this will also help you familiarize yourself with the cards.</h4>
+
+<ion-grid main (clickoutside)="turnOffAnimation()">
+  <ion-row>
+    <ion-col width-10>    </ion-col>
+   
+  
+    <ion-col width-10>    
+      First offering: a Memory game
+      <ion-img [src]="pathToMemory" class="cardSelect" (click)="goMemory()" 
+      style="cursor: pointer;"
+      ></ion-img>
+    </ion-col>
+  
+   
+    <ion-col width-10>    </ion-col>
+  </ion-row>
+ 
+  </ion-grid>
+</ion-content>

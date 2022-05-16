@@ -1,0 +1,155 @@
+$background-color: #aeb5ce;
+
+ion-card {
+    background-color: #fff;
+    width: 100%;
+    margin: 0;
+    margin-bottom: 25px;
+    position: relative;
+    top: -30px;
+}
+
+ion-card:last-of-type {
+    margin-bottom: 0 !important;
+}
+
+ion-item {
+    background-color: #fff;
+}
+
+// * {
+//     background-color: rgb(33, 25, 67);
+// }
+
+* {
+    background-color: rgb(8, 20, 94) !important;
+  }
+
+p {
+    color: white;
+}
+
+
+.md-grid-fixed [class*="mbsc-col"] {
+    padding-top: .5em;
+    padding-bottom: .5em;
+    background: #cfe0f3;
+    background-clip: padding-box;
+    border: 1px solid transparent;
+    color: #454b50;
+}
+
+.md-grid-fixed .mbsc-row {
+    margin: 1em 0;
+}
+
+ion-grid {
+    border: 1px solid  #edce27; // #aeb7ca;
+  }
+
+.multiline
+{
+//   padding:20px;
+// 4.21.22 g.s.  white-space: normal;
+    white-space: pre-wrap;
+
+//   overflow-wrap: break-word;
+  overflow-wrap: break-word; 
+  word-wrap: break-word;
+  display: block;
+  width: auto;
+  font-size: small;
+}
+
+  // page.scss
+
+:host {
+    ion-item {
+        border-bottom: 3px dotted var(--ion-color-medium);
+    }
+}
+
+
+.cardBig {
+    width: 100%; //180px; 
+    height: 100%; //180px;
+}
+
+.cardMed {
+    width: 120px; 
+    height: 120px;
+}
+
+.cardSmall {
+    width: 90px; 
+    height: 90px
+}
+
+.list {
+    padding-top: 0px;
+    padding-bottom: 0px;
+}
+
+.head-subject {
+  color: white;
+  background: rgb(6, 15, 71) !important;
+  margin: 0px !important;
+//   height: 20px;
+}
+
+.head-date {
+    color: white;
+    background: rgb(6, 15, 71) !important;
+    margin: 0px !important;
+}
+
+.head-type {
+    color: white !important;
+    background: rgb(6, 15, 71) ;
+    margin: 0px !important;
+}
+
+#search-bar {
+    padding-top: 0px;
+    padding-bottom: 0px;
+    background-color: #d1d1d1;
+}
+ 
+.diary-title {
+    padding-bottom: 9px;
+    padding-top: 9px;
+}
+
+ion-segment{
+    height:30px;
+  }
+  
+  ion-segment-button{
+     min-height:30px;
+  }
+
+  .accordian-list {
+    //   padding-top: 120px;
+    padding-top: 0px;
+  }
+
+  .mySearchTerm {
+      padding-left: 30px;
+      padding-right: 30px;
+      width: 160px;
+  }
+
+  .searchTools {
+      padding-top: 0px;
+      padding-bottom: 0px;
+  }
+
+  .spacerBefore {
+      padding-top: 33px;
+      padding-bottom: 77px;
+  }
+
+  .cardSearch {
+      width: 50%;
+      height: 120px;
+  }
