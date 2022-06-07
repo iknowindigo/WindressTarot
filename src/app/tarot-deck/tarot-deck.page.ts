@@ -1025,6 +1025,7 @@ export class TarotDeckPage implements OnInit {
     this.crunchMessages();  // 5-12-22 we weren't ready....
     const menuName = 'showFriendRequests';
     // we don't respond to menu click - it will reroute if user clicks on it
+    
     const popover = await this.popoverController.create( {
       component: PopoverMenuComponent,
       cssClass: 'comment-popover',
@@ -1032,6 +1033,10 @@ export class TarotDeckPage implements OnInit {
       componentProps: {
         onClick: () => {
           popover.dismiss();
+         // this.goFriends();
+        //  console.log('trying to find friend requests');
+        //  this.firestoreService.getUsers();
+        //  this.router.navigate(['friends']);
         },
         data: menuName  // 'abc'
       },

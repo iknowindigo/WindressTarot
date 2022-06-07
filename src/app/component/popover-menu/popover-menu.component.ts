@@ -86,6 +86,8 @@ export class PopoverMenuComponent implements OnInit {
       this.replyMenu = this.menuName === 'commentReply';
       this.showFR = this.menuName === 'showFriendRequests';
       if (this.showFR) {
+       //  console.log('trying to find friend requests');
+        // this.firestoreService.getUsers();
         this.socialMenu = false;
         this.friendRequests = this.realtimeDB.getMyFR();
         // console.log('friend requests', this.friendRequests.length, this.friendRequests);
@@ -170,7 +172,7 @@ export class PopoverMenuComponent implements OnInit {
   }
 
   afterClick(sel: number) {
-    // console.log('clicked', sel);
+   console.log('clicked', sel);
     this.tarotCardServe.setContextItemData(sel);
     this.onClick();
   }

@@ -60,6 +60,8 @@ export class FriendsPage implements OnInit {
   ngOnInit() {
     // this.realtimeDB.resetCache(); // might help?
     this.realtimeDB.dummyLoadAll();
+    console.log('init friends');
+    this.firestoreService.getUsers();
     this.userDataList = this.firestoreService.getListOfUsers();
     // this.allUserMessages = this.realtimeDB.getAllUserMessages();
     // this.allFriendRequests = this.realtimeDB.getAllFriendRequests();

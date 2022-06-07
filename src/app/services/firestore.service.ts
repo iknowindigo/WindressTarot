@@ -138,7 +138,7 @@ export class FirestoreService {
       }
     });
     this.batchForeignReadingState.subscribe( stateb => {
-      console.log('subscribe foreign readings', stateb);
+    //  console.log('subscribe foreign readings', stateb);
       if (stateb === this.foreignIdsToHarvest.length) {
         // console.log('harvesting foreign readings', stateb, this.foreignIdsToHarvest.length);
         this.createTCIT(this.socialReadings);
@@ -572,7 +572,7 @@ async SetFolderAsSourceForReadings(folderID: string[]) {
 
   // this will create a complete list of readings for the user - we can filter this later
   async CreateListOfReadings(): Promise<TarotCardsInThrow[]> {
-    console.log('create list of readings', this.allReadings.length);
+   // console.log('create list of readings', this.allReadings.length);
     this.allReadings.splice(0, this.allReadings.length);
     
     this.allReadings = [];  // reset
@@ -586,13 +586,13 @@ async SetFolderAsSourceForReadings(folderID: string[]) {
         //   console.log('all pop');
         }
       }
-      console.log('create list of readings 2');
+   //   console.log('create list of readings 2');
       
       this.myThrows = data;
       this.createTCIT(this.myThrows);  // refactored so I can call it twice...
     })
     // .catch(err => console.log('oops 1', err));
-    console.log('created all readings', this.allReadings.length)
+   // console.log('created all readings', this.allReadings.length)
     return this.allReadings;
   }
 
@@ -1517,7 +1517,7 @@ getRayReadingFolders(): RayReadingsFolders {
     if (index2 < 0) {
       this.userDataList.push(userDat);
     }
-    // console.log('adding user', userDat, this.userDataList);
+    //  console.log('adding user', userDat, this.userDataList);
   }
 
   public async getUsers() {
@@ -1538,7 +1538,7 @@ getRayReadingFolders(): RayReadingsFolders {
   //       console.log('done', this.userDataList);
         if (this.userDataList.length > 0) {
           this.usersReadyState.next(this.userDataList.length);
-          console.log('set user subscribe', this.userDataList.length);
+          // console.log('set user subscribe', this.userDataList.length);
         }
        
       });
@@ -1611,7 +1611,7 @@ getRayReadingFolders(): RayReadingsFolders {
 
   // call this to refresh things - no database read done
   crunchAllReadings(userID: string) {
-    console.log('crunchAllReadings', this.allSocialReadings.length, this.idsToHarvest.length, this.idsToHarvest);
+    // console.log('crunchAllReadings', this.allSocialReadings.length, this.idsToHarvest.length, this.idsToHarvest);
     this.allSocialReadings.splice(0, this.allSocialReadings.length);  // 1/18/21 ?
     this.idsToHarvest.forEach(harv => {
         // get the reading from our own list
@@ -1625,7 +1625,7 @@ getRayReadingFolders(): RayReadingsFolders {
 
   async cruchForeignReadingsToo() {
     // this.fbUser = await this.authService.getFirebaseUser();
-     console.log('crunch foreign readings', this.foreignTarotReadings.length, this.foreignIdsToHarvest.length);  // this.fbUser.uid
+    //  console.log('crunch foreign readings', this.foreignTarotReadings.length, this.foreignIdsToHarvest.length);  // this.fbUser.uid
     this.foreignIdsToHarvest.forEach(harv => {
       // get the reading from our own list
       const foundReading = this.findForeignTarotThrowByID(harv.tarotThrowID);
@@ -1636,7 +1636,7 @@ getRayReadingFolders(): RayReadingsFolders {
   }
 
   getAllReadings() {
-     console.log('returning all readings', this.allReadings.length);
+    //  console.log('returning all readings', this.allReadings.length);
     return this.allReadings;
   }
 
@@ -1814,7 +1814,7 @@ getRayReadingFolders(): RayReadingsFolders {
     })
     .finally( () => {
       this.batchForeignReadingState.next(this.socialReadings.length); // 2-6-21
-      console.log('bump foreign readings', this.socialReadings.length);
+      // console.log('bump foreign readings', this.socialReadings.length);
       // I think we should have all the foreign readings now
       // this.createTCIT(this.socialReadings);
       // this.buildForeignThrowArray();  // kludge copy - should make a common routine

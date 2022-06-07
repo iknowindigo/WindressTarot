@@ -819,7 +819,7 @@ export class RealtimeDbService {
       this.allMessages.reverse();  // this reverses the array - so we now have a reverse sort
       // console.log('going to reverse the order now', this.allMessages);
       this.allMessagesReadyState.next(this.allMessages.length);
-     console.log('bump message subscription', this.allMessages.length, this.allMessages);
+    //  console.log('bump message subscription', this.allMessages.length, this.allMessages);
       // this.getSocialTarotReadings();  // probably will need to hit the database - unless all the readings are by our users
     });
     // this.allMessagesReadyState.next(this.allMessages.length); // 1-17-21 moved this from inside loop
@@ -1182,7 +1182,7 @@ export class RealtimeDbService {
   getSocialTarotReadings() {
     this.user = this.authService.getCurrentFBUser();  // back door
     this.allReadings = this.firestoreService.getAllReadings();
-     console.log('getSocialTarotReadings', this.idsToHarvest.length, this.allReadings.length);
+    //  console.log('getSocialTarotReadings', this.idsToHarvest.length, this.allReadings.length);
     // console.log('realtime - user', this.user);
     const userID = this.user === null ? this.userID : this.user.uid;
    

@@ -159,7 +159,7 @@ export class AuthenticationService {
         this.setUserNameAndPW(userInfo).then ( (res) => {
        // this.storage.set(TOKEN_KEY, userInfo.userName).then(res => {
          // 5-14-22 trying to debug - pretend I'm Jerry
-         cred.user.uid = '5HGPCvdp2ZSq5LaMiPVrkqqdA0C2';  // this is Jerry's ID
+        //  cred.user.uid = '5HGPCvdp2ZSq5LaMiPVrkqqdA0C2';  // this is Jerry's ID
           this.authenticationState.next(true);
           this.setFirebaseUser(cred.user);
           theUser = cred.user;
